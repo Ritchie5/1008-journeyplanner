@@ -1,0 +1,105 @@
+MRT,Pasir ris,Tampines,4
+MRT,Tampines,Simei,2
+MRT,Tampines,75009:72,4
+MRT,Simei,Taneh Merah,2
+MRT,Taneh Merah,Changi Airport,4
+MRT,Taneh Merah,Bedok,4
+MRT,Bedok,Kembangan,3
+MRT,Kembangan,Eunos,4
+MRT,Eunos,Paya Lebar,4
+MRT,Paya Lebar,Aljunied,4
+MRT,Aljunied,Kallang,1
+MRT,Kallang,Lavender,1
+MRT,Lavender,Bugis,5
+MRT,Bugis,City Hall,3
+MRT,City Hall,Raffles Place,5
+MRT,City Hall,Dhoby Ghaut,1
+MRT,Raffles Place,Tanjong Pagar,4
+MRT,Raffles Place,Marina Bay,5
+MRT,Tanjong Pagar,Outram Park,2
+MRT,Outram Park,Tiong Bahru,3
+MRT,Tiong Bahru,Redhill,3
+MRT,Redhill,Queenstown,1
+MRT,Queenstown,Commonwealth,5
+MRT,Commonwealth,Buona Vista,4
+MRT,Buona Vista,Dover,1
+MRT,Dover,Clementi,3
+MRT,Clementi,Jurong East,4
+MRT,Jurong East,Chinese Garden,3
+MRT,Jurong East,Bukit Batok,2
+MRT,Chinese Garden,Lakeside,2
+MRT,Lakeside,Boon Lay,2
+MRT,Boon Lay,Pioneer,5
+MRT,Pioneer,Joo Koon,4
+MRT,Marina South Pier,Marina Bay,3
+MRT,Marina Bay,Raffles Place,4
+MRT,Dhoby Ghaut,City Hall,3
+MRT,Somerset,Orchard,2
+MRT,Orchard,Newton,2
+MRT,Newton,Novena,3
+MRT,Novena,Toa Payoh,4
+MRT,Toa Payoh,Braddell,1
+MRT,Braddell,Bishan,1
+MRT,Bishan,Ang Mo Kio,1
+MRT,Ang Mo Kio,Yio Chu Kang,1
+MRT,Yio Chu Kang,Khatib,2
+MRT,Yio Chu Kang,55509:72,4
+MRT,Khatib,Yishun,4
+MRT,Yishun,Canberra,2
+MRT,Canberra,Sembawang,5
+MRT,Sembawang,Admiralty,1
+MRT,Admiralty,Woodlands,1
+MRT,Woodlands,Marsiling,3
+MRT,Marsiling,Kranji,3
+MRT,Kranji,Sungei Kadut,4
+MRT,Sungei Kadut,Yew Tee,3
+MRT,Yew Tee,Choa Chu Kang,2
+MRT,Choa Chu Kang,Bukit Gombak,3
+MRT,Bukit Gombak,Bukit Batok,3
+MRT,Bukit Batok,Jurong East,1
+MRT,55509:72,Yio Chu Kang,2
+BUS,55509:72,55321:72,2
+BUS,55321:72,54359:72,5
+BUS,54359:72,54479:72,2
+BUS,54479:72,54489:72,3
+BUS,54489:72,54499:72,2
+BUS,54499:72,54509:72,5
+BUS,54509:72,54659:72,4
+BUS,54659:72,66459:72,1
+BUS,66459:72,66479:72,2
+BUS,66479:72,64111:72,1
+BUS,64111:72,64499:72,3
+BUS,64499:72,64489:72,4
+BUS,64489:72,64479:72,5
+BUS,64479:72,64411:72,1
+BUS,64411:72,64339:72,5
+BUS,64339:72,64529:72,5
+BUS,64529:72,64551:72,5
+BUS,64551:72,64541:72,2
+BUS,64541:72,64011:72,5
+BUS,64011:72,63061:72,5
+BUS,63061:72,63241:72,3
+BUS,63241:72,64209:72,1
+BUS,64209:72,64219:72,3
+BUS,64219:72,64229:72,4
+BUS,64229:72,64139:72,2
+BUS,64139:72,64149:72,1
+BUS,64149:72,64159:72,4
+BUS,64159:72,64169:72,1
+BUS,64169:72,64179:72,3
+BUS,64179:72,64189:72,5
+BUS,64189:72,64199:72,1
+BUS,64199:72,73029:72,4
+BUS,73029:72,73039:72,2
+BUS,73039:72,74019:72,4
+BUS,74019:72,74029:72,5
+BUS,74029:72,74039:72,4
+BUS,74039:72,74049:72,3
+BUS,74049:72,75311:72,5
+BUS,75311:72,75291:72,5
+BUS,75291:72,75281:72,3
+BUS,75281:72,75271:72,2
+BUS,75271:72,75261:72,3
+BUS,75261:72,75129:72,2
+BUS,75129:72,75009:72,2
+MRT,75009:72,Tampines,4
