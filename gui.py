@@ -1,0 +1,147 @@
+import sys
+from PyQt5 import QtCore, QtGui, QtWidgets #pip3 install pyqt5
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
+
+#Class to create a new window
+#Main window that holds the other widgets
+class newWindow:
+    def __init__(self, name, width, height):
+        #Initialize new instance of window
+        self.window = QMainWindow()
+        #Set Window Title
+        self.window.setWindowTitle(name)
+        #Set Window Size
+        self.window.resize(width,height)
+        
+    #Set Window Icon
+    def setWindowIcon(self, image):
+        self.window.setWindowIcon(QtGui.QIcon(image))
+    
+    #Set window background
+    # def setStyleSheet(self, image):
+    #     style = "background-image: url(./" + image + "); "
+    #     style += "background-repeat: repeat; background-position: center;"
+    #     self.QWin.setStyleSheet(style)
+
+class newApp:
+    #Class to initialize a new instance of QApplication module which is required to run PyQt5
+    def __init__(self):
+        self.app = QApplication(sys.argv)
+
+#Class to create a stack widget
+#Stack widget holds widget pages
+#Simulate changing of window by switching pages
+class newStackWidget:
+    def __init__(self, window, x, y, width, height):
+        #Attach the stack widget to a window
+        self.stackW = QtWidgets.QStackedWidget(window)
+        #Set the position and size of the stack widget, x & y are coordinates
+        self.stackW.setGeometry(x, y, width, height)
+        #Set the stack widget index to point to the first widget page
+        self.stackW.setCurrentIndex(0)
+    
+    def addPage(self, page):
+        #Add a page to stack widget
+        self.stackW.addWidget(page)
+    
+    def setCurrentPage(self, page):
+        #Set a specific page as the current page
+        self.stackW.setCurrentWidget(page.page)
+
+#Class to create a new widget page
+#Widget page contains a group of widgets
+class newWidgetPage:
+    def __init__(self):
+        #Creates a new page
+        self.page = QtWidgets.QWidget()
+
+#Create new label widget
+#Label can display text and images
+class newLabel:
+    def __init__(self, page, x, y, width, height):
+        #Initialize new instance of Label UI
+        self.label = QLabel(page)
+        #Set Label x & y position and size
+        #self.label.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        self.label.setGeometry(QtCore.QRect(x, y, width, height))
+        #Set alignment of label text to be in the middle
+        self.label.setAlignment(QtCore.Qt.AlignVCenter)
+        #Set alignment of label text to the left
+        self.label.setAlignment(QtCore.Qt.AlignLeft)
+        #Allows word warpping of text
+        self.label.setWordWrap(True)
+        #Set lable background to transparent and background color to none
+        self.label.setStyleSheet("background: transparent; background-color: none;")
+
+    def setText(self, text):
+        #Set the label text
+        self.label.setText(text)
+        #Automatically update the length of label to fit text
+        self.label.update()
+
+    def setFont(self, fontStyle, fontSize):
+        #Set font style and font size of text
+        self.label.setFont(QFont(fontStyle, fontSize))
+    
+    def setImage(self, image):
+        #Set display image in Label
+        self.label.setPixmap(QtGui.QPixmap(image))
+        #Enable image scaling to fit Label size
+        self.label.setScaledContents(True)
+
+#Class to create a new button widget
+class newPushButton:
+    def __init__(self, page, x, y, width, height, clickedfunction):
+        #Initialize new instance of PushButton UI
+        self.pushButton = QPushButton(page)
+        #Set PushButton x & y position and size
+        self.pushButton.setGeometry(QtCore.QRect(x, y, width, height))
+        #Calls function when PushButton is clicked
+        self.pushButton.clicked.connect(clickedfunction)
+
+    
+    def setText(self, text):
+        #Set PushButton text
+        self.pushButton.setText(text)
+    
+    def setFont(self, fontStyle, fontSize):
+        #Set font style and font size of text
+        self.pushButton.setFont(QFont(fontStyle,int(fontSize)))
+
+class newComboBox:
+    def __init__(self, page, x, y, width, height):
+        #Initialize new instance of ComboBox UI
+        self.combo = QComboBox(page)
+        #Set ComboBox x & y position and size
+        self.combo.setGeometry(x, y, width, height)
+        #Allows user to key values into ComboBox
+        self.combo.setEditable(True)
+        #Prevent user input from being added into ComboBox
+        self.combo.setInsertPolicy(QComboBox.NoInsert)
+        #Make ComboBox empty
+        self.combo.setPlaceholderText(" ")
+        #Filter combobox options
+        self.filter = QSortFilterProxyModel(self.combo)
+        #Set filter case sensitivity to accept both upper and lower case
+        self.filter.setFilterCaseSensitivity(Qt.CaseInsensitive)
+        #Used to display recommendation as users starts typing
+        self.filter.setSourceModel(self.combo.model())
+        #Auto complete user input
+        self.completer = QCompleter(self.filter, self.combo)
+        #Set auto complete case sensitivity to accept both upper and lower case
+        self.completer.setCaseSensitivity(Qt.CaseInsensitive)
+        self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+        self.combo.setCompleter(self.completer)
+        #Start filtering if text in ComboBox is edited
+        self.combo.lineEdit().textEdited.connect(self.filter.setFilterFixedString)
+        #Call auto complete function if user hits enter
+        self.completer.activated.connect(self.autoComplete)
+
+    def autoComplete(self, text):
+        if text:
+            index = self.combo.findText(text)
+            self.combo.setCurrentIndex(index)
+
+
