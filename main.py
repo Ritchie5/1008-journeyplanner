@@ -1,6 +1,6 @@
 import csv
-from collections import deque
-from IndexMinPQ import IndexMinPQ
+import time
+import timeit
 
 
 class Edge:
@@ -100,6 +100,8 @@ def compare_shortest_path(graph1, start, end):
     paths = find_shortest_path(graph1, start, end)
     time = [0, 0, 0, 0, 0]
 
+    print(paths[0])
+
     number_of_path = len(paths)
     for x in range(0, number_of_path):
         for y in range(1, len(paths[x]), 2):
@@ -138,6 +140,7 @@ def find_shortest_path(graph1, start, end, path=[], time=0):
 
 
 def main():
+
     graph = Graph("C:/1008/graph.csv")
     # temp1 = find_path(graph.adjList, "Pasir ris", "Woodlands")
     # print(temp1)
@@ -148,4 +151,8 @@ def main():
 
 
 if __name__ == '__main__':
+    start = time.time()
     main()
+    end = time.time()
+    print(end - start)
+
