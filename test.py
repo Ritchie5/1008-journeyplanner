@@ -3,6 +3,10 @@ from gui import *
 
 winWidth = 1080
 winHeight = 720
+comboWidth = 400
+comboHeight = 40
+comboX = (winWidth - comboWidth) / 2
+comboY = (winHeight - comboHeight) / 8
 testarr = ["Choa Chu Kang", "Boon Lay", "Changi"]
 
 
@@ -16,8 +20,10 @@ class win:
         self.cenWidget = QtWidgets.QWidget(self.win.window)
         self.win.window.setCentralWidget(self.cenWidget)
         self.stack = newStackWidget(self.cenWidget, 0,0, winWidth,winHeight)
-        self.combo = newComboBox(self.page1.page, 0,0, 400, 40)
-        self.combo.combo.addItems(testarr)
+        self.startCombo = newComboBox(self.page1.page, comboX, comboY, comboWidth, comboHeight)
+        self.startCombo.combo.addItems(testarr)
+        self.destCombo = newComboBox(self.page1.page, comboX, comboY+50, comboWidth, comboHeight)
+        self.destCombo.combo.addItems(testarr)
         self.stack.addPage(self.page1.page)
         self.stack.setCurrentPage(self.page1)
 
