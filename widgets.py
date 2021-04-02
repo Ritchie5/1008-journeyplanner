@@ -120,7 +120,7 @@ class newPushButton:
         self.pushButton.setFont(QFont(fontStyle,int(fontSize)))
 
 class newComboBox:
-    def __init__(self, page, x, y, width, height):
+    def __init__(self, page, x, y, width, height, fontStyle="", fontSize=""):
         #Initialize new instance of ComboBox UI
         self.combo = QComboBox(page)
         #Set ComboBox x & y position and size
@@ -147,10 +147,16 @@ class newComboBox:
         self.combo.lineEdit().textEdited.connect(self.filter.setFilterFixedString)
         #Call auto complete function if user hits enter
         self.completer.activated.connect(self.autoComplete)
+        if fontStyle and fontSize:
+            self.setFont(fontStyle, fontSize)
 
     def autoComplete(self, text):
         if text:
             index = self.combo.findText(text)
             self.combo.setCurrentIndex(index)
+
+    def setFont(self, fontStyle, fontSize):
+        #Set font style and font size of text
+        self.combo.setFont(QFont(fontStyle,int(fontSize)))
 
 

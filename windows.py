@@ -17,6 +17,7 @@ class window:
     __comboWidth = 400
     __comboHeight = 40
 
+    #Widget Coordinates
     __logoX = (__winWidth - __comboWidth) / 2
     __logoY = (__winHeight - __comboHeight) / 4
     __comboX = __logoX
@@ -26,7 +27,7 @@ class window:
     __buttonX = __comboX
     __buttonY = __comboY + 100
 
-
+    #Call function to setup UI
     def setupUI(self, window):
         window.setWindowIcon("winIcon.PNG")
         self.cenWidget = QtWidgets.QWidget(window.win)
@@ -36,13 +37,14 @@ class window:
         self.mainWin()
         self.stackWidget.setCurrentPage(self.mainPage)
 
+    #Call function to setup main window
     def mainWin(self):
         self.mainPage = newWidgetPage()
         locations = self.getLocation("graph.csv")
         self.mainlogo = newLabel(self.mainPage.page, self.__logoX, self.__logoY, self.__logoWidth, self.__logoHeight, "", "mainLogo.PNG")
-        self.startCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight)
+        self.startCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 12)
         self.startCombo.combo.addItems(locations)
-        self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight)
+        self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight, "Ariel", 12)
         self.destCombo.combo.addItems(locations)
         self.startLabel = newLabel(self.mainPage.page, self.__labelX, self.__labelY, self.__labelWidth, self.__labelHeight, "Select Starting Point:", "", "Ariel", 12)
         self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
@@ -51,7 +53,14 @@ class window:
         self.stackWidget.addPage(self.mainPage.page)
 
     def dijkClicked(self):
-        pass
+        startLoc = self.startCombo.combo.currentText()
+        destLoc = self.destCombo.combo.currentText()
+        checkstart = self.startCombo.combo.findText(startLoc)
+        checkdest = self.destCombo.combo.findText(destLoc)
+        if checkstart or checkdest == -1:
+            print("Error!")
+        else:
+            print (startLoc, destLoc)
 
     def backtrackClicked(self):
         pass

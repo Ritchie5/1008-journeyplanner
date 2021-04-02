@@ -1,14 +1,16 @@
 import csv
 import time
+import sys
 from Backtracking import Backtracking
 from Dijkstra import Dijkstra
 from graph import Graph
+from windows import *
 
 
 def main():
     # Initialize Graph
-    graph = Graph("C:/1008/graph.csv")
-
+    # graph = Graph("C:/1008/graph.csv")
+    graph = Graph("graph.csv")
     # Using BackTracking Algo
     # BackTracking: Finding single path algo
     back_tracker = Backtracking()
@@ -27,9 +29,33 @@ def main():
     temp_Dij = Dijkstra(graph, "Simei")
     temp_Dij.find_path("64229:72")
 
+# class UI:
+#     #Variable for window size
+#     __winWidth = 1080
+#     __winHeight = 720
+#     def __init__(self):
+#         self.win = newWindow("Journey Planner", self.__winWidth, self.__winHeight)
+#         self.ui = window()
+#         self.ui.setupUI(self.win)
+
+#     def show(self):
+#         self.win.win.show()
+
+def UI():
+    #Variable for window size
+    winWidth = 1080
+    winHeight = 720
+    win = newWindow("Journey Planner", winWidth, winHeight)
+    ui = window()
+    ui.setupUI(win)
+    win.win.show()
+    sys.exit(application.app.exec_())
+
 
 if __name__ == '__main__':
     start = time.time()
     main()
+    application = newApp()
+    UI()
     end = time.time()
     print(end - start)
