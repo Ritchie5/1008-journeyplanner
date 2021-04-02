@@ -29,18 +29,6 @@ def main():
     temp_Dij = Dijkstra(graph, "Simei")
     temp_Dij.find_path("64229:72")
 
-# class UI:
-#     #Variable for window size
-#     __winWidth = 1080
-#     __winHeight = 720
-#     def __init__(self):
-#         self.win = newWindow("Journey Planner", self.__winWidth, self.__winHeight)
-#         self.ui = window()
-#         self.ui.setupUI(self.win)
-
-#     def show(self):
-#         self.win.win.show()
-
 def UI():
     #Variable for window size
     winWidth = 1080

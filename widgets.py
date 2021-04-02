@@ -159,4 +159,21 @@ class newComboBox:
         #Set font style and font size of text
         self.combo.setFont(QFont(fontStyle,int(fontSize)))
 
+# Class to create new messagebox object
+class newMessageBox:
+    def __init__(self, winTitle, text, winIcon="" , icon="Critical"):
+        #Initialized a new instance of message box UI
+        self.msgBox = QMessageBox()
+        self.msgBox.setWindowTitle(winTitle)
+        self.msgBox.setText(text)
+        self.msgBox.show()
+        if winIcon:
+            self.msgBox.setWindowIcon(QtGui.QIcon(winIcon))
+        if icon == "Critical":
+            self.msgBox.setIcon(QMessageBox.Critical)
 
+    def show(self):
+        """! set the messagebox to be visible
+        """
+        msgBox = self.msgBox
+        msgBox.exec_()

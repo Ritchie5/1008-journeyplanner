@@ -57,10 +57,7 @@ class window:
         destLoc = self.destCombo.combo.currentText()
         checkstart = self.startCombo.combo.findText(startLoc)
         checkdest = self.destCombo.combo.findText(destLoc)
-        if checkstart or checkdest == -1:
-            print("Error!")
-        else:
-            print (startLoc, destLoc)
+        print (startLoc, destLoc)
 
     def backtrackClicked(self):
         pass
