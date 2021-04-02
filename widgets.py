@@ -9,15 +9,15 @@ from PyQt5.QtWidgets import *
 class newWindow:
     def __init__(self, name, width, height):
         #Initialize new instance of window
-        self.window = QMainWindow()
+        self.win = QMainWindow()
         #Set Window Title
-        self.window.setWindowTitle(name)
+        self.win.setWindowTitle(name)
         #Set Window Size
-        self.window.resize(width,height)
+        self.win.resize(width,height)
         
     #Set Window Icon
     def setWindowIcon(self, image):
-        self.window.setWindowIcon(QtGui.QIcon(image))
+        self.win.setWindowIcon(QtGui.QIcon(image))
     
     #Set window background
     # def setStyleSheet(self, image):
@@ -60,7 +60,7 @@ class newWidgetPage:
 #Create new label widget
 #Label can display text and images
 class newLabel:
-    def __init__(self, page, x, y, width, height):
+    def __init__(self, page, x, y, width, height, text="", image="", fontStyle="", fontSize=""):
         #Initialize new instance of Label UI
         self.label = QLabel(page)
         #Set Label x & y position and size
@@ -74,6 +74,12 @@ class newLabel:
         self.label.setWordWrap(True)
         #Set lable background to transparent and background color to none
         self.label.setStyleSheet("background: transparent; background-color: none;")
+        if text:
+            self.setText(text)
+        if image:
+            self.setImage(image)
+        if fontStyle and fontSize:
+            self.setFont(fontStyle, fontSize)
 
     def setText(self, text):
         #Set the label text

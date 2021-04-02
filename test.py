@@ -1,5 +1,5 @@
 import sys
-from gui import *
+from windows import *
 
 winWidth = 1080
 winHeight = 720
@@ -16,19 +16,11 @@ def test():
 class win:
     def __init__(self):
         self.win = newWindow("Journey Planner", winWidth, winHeight)
-        self.page1 = newWidgetPage()
-        self.cenWidget = QtWidgets.QWidget(self.win.window)
-        self.win.window.setCentralWidget(self.cenWidget)
-        self.stack = newStackWidget(self.cenWidget, 0,0, winWidth,winHeight)
-        self.startCombo = newComboBox(self.page1.page, comboX, comboY, comboWidth, comboHeight)
-        self.startCombo.combo.addItems(testarr)
-        self.destCombo = newComboBox(self.page1.page, comboX, comboY+50, comboWidth, comboHeight)
-        self.destCombo.combo.addItems(testarr)
-        self.stack.addPage(self.page1.page)
-        self.stack.setCurrentPage(self.page1)
+        self.ui = window()
+        self.ui.setupUI(self.win)
 
     def show(self):
-        self.win.window.show()
+        self.win.win.show()
 
 
 application = newApp()
