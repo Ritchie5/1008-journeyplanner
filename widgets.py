@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets #pip3 install pyqt5
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from PyQt5.QtGui import QStandardItemModel, QStandardItem, QFont
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
@@ -66,10 +66,10 @@ class newLabel:
         #Set Label x & y position and size
         #self.label.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
         self.label.setGeometry(QtCore.QRect(x, y, width, height))
-        #Set alignment of label text to be in the middle
-        self.label.setAlignment(QtCore.Qt.AlignVCenter)
         #Set alignment of label text to the left
         self.label.setAlignment(QtCore.Qt.AlignLeft)
+        #Set alignment of label text to be in the middle
+        self.label.setAlignment(QtCore.Qt.AlignVCenter)
         #Allows word warpping of text
         self.label.setWordWrap(True)
         #Set lable background to transparent and background color to none
@@ -99,14 +99,17 @@ class newLabel:
 
 #Class to create a new button widget
 class newPushButton:
-    def __init__(self, page, x, y, width, height, clickedfunction):
+    def __init__(self, page, x, y, width, height, clickedfunction, text="", fontStyle="", fontSize=""):
         #Initialize new instance of PushButton UI
         self.pushButton = QPushButton(page)
         #Set PushButton x & y position and size
         self.pushButton.setGeometry(QtCore.QRect(x, y, width, height))
         #Calls function when PushButton is clicked
         self.pushButton.clicked.connect(clickedfunction)
-
+        if text:
+            self.setText(text)
+        if fontStyle and fontSize:
+            self.setFont(fontStyle, fontSize)
     
     def setText(self, text):
         #Set PushButton text

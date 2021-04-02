@@ -21,6 +21,10 @@ class window:
     __logoY = (__winHeight - __comboHeight) / 4
     __comboX = __logoX
     __comboY = __logoY + 100
+    __labelX = __comboX - 150
+    __labelY = __comboY
+    __buttonX = __comboX
+    __buttonY = __comboY + 100
 
 
     def setupUI(self, window):
@@ -40,15 +44,27 @@ class window:
         self.startCombo.combo.addItems(locations)
         self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight)
         self.destCombo.combo.addItems(locations)
+        self.startLabel = newLabel(self.mainPage.page, self.__labelX, self.__labelY, self.__labelWidth, self.__labelHeight, "Select Starting Point:", "", "Ariel", 12)
+        self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
+        self.dijkButton = newPushButton(self.mainPage.page, self.__buttonX, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.dijkClicked, "Use Dijkstra", "Ariel", 12)
+        self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
         self.stackWidget.addPage(self.mainPage.page)
 
+    def dijkClicked(self):
+        pass
+
+    def backtrackClicked(self):
+        pass
+
     def getLocation(self, file):
-        locarr = []
-        with open(file) as csv_file:
-            csv_reader = csv.reader(csv_file, delimiter=',')
-            for row in csv_reader:
-                loc = row[1]
-                for x in loc:
-                    if x not in locarr:
-                        locarr.append(x)
-        return locarr
+        filename = open("graph.csv", "r")
+        file = csv.DictReader(filename)
+        tempArr = []
+        locArr = []
+        for col in file:
+            tempArr.append(col["Pasir ris"])
+        locArr.append("Pasir ris")
+        for x in tempArr:
+            if x not in locArr:
+                locArr.append(x)
+        return locArr
