@@ -33,12 +33,13 @@ class Backtracking:
 
     def get_shortest_path(self, graph1, start, end):
         paths = self.find_shortest_path(graph1, start, end)
-        time = [0, 0, 0, 0, 0]
 
         number_of_path = len(paths)
+        time = [0 for i in range(number_of_path)]
         for x in range(0, number_of_path):
             for y in range(1, len(paths[x]), 2):
-                time[x] += int(paths[0][y])
+                if x == 1 and time[x] < time[x-1]:
+                    time[x] += int(paths[x][y])
 
         time_taken = time[0]
         fastest_path = 0
