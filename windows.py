@@ -40,12 +40,12 @@ class window:
     #Call function to setup main window
     def mainWin(self):
         self.mainPage = newWidgetPage()
-        locations = self.getLocation("graph.csv")
+        self.locations = self.getLocation("graph.csv")
         self.mainlogo = newLabel(self.mainPage.page, self.__logoX, self.__logoY, self.__logoWidth, self.__logoHeight, "", "mainLogo.PNG")
         self.startCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 12)
-        self.startCombo.combo.addItems(locations)
+        self.startCombo.combo.addItems(self.locations)
         self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight, "Ariel", 12)
-        self.destCombo.combo.addItems(locations)
+        self.destCombo.combo.addItems(self.locations)
         self.startLabel = newLabel(self.mainPage.page, self.__labelX, self.__labelY, self.__labelWidth, self.__labelHeight, "Select Starting Point:", "", "Ariel", 12)
         self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
         self.dijkButton = newPushButton(self.mainPage.page, self.__buttonX, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.dijkClicked, "Use Dijkstra", "Ariel", 12)
@@ -55,12 +55,18 @@ class window:
     def dijkClicked(self):
         startLoc = self.startCombo.combo.currentText()
         destLoc = self.destCombo.combo.currentText()
-        checkstart = self.startCombo.combo.findText(startLoc)
-        checkdest = self.destCombo.combo.findText(destLoc)
-        print (startLoc, destLoc)
+        if startLoc and destLoc in self.locations:
+            print (startLoc, destLoc)
+        else:
+            msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
 
     def backtrackClicked(self):
-        pass
+        startLoc = self.startCombo.combo.currentText()
+        destLoc = self.destCombo.combo.currentText()
+        if startLoc and destLoc in self.locations:
+            print (startLoc, destLoc)
+        else:
+            msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
 
     def getLocation(self, file):
         filename = open("graph.csv", "r")

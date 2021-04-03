@@ -161,16 +161,16 @@ class newComboBox:
 
 # Class to create new messagebox object
 class newMessageBox:
-    def __init__(self, winTitle, text, winIcon="" , icon="Critical"):
+    def __init__(self, winTitle, text, winIcon="" , msgIcon="Critical"):
         #Initialized a new instance of message box UI
         self.msgBox = QMessageBox()
         self.msgBox.setWindowTitle(winTitle)
         self.msgBox.setText(text)
-        self.msgBox.show()
         if winIcon:
             self.msgBox.setWindowIcon(QtGui.QIcon(winIcon))
-        if icon == "Critical":
+        if msgIcon == "Critical":
             self.msgBox.setIcon(QMessageBox.Critical)
+        self.msgBox.exec_()
 
     def show(self):
         """! set the messagebox to be visible
