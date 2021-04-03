@@ -20,10 +20,8 @@ class Dijkstra:
 
         while not self.pq.isEmpty():
             v = self.pq.del_min()
-            self.pq.print_pq()
             for node in self.list[v]:
                 node.marked = True
-            print("Relaxing Vertex " + str(v))
             for e in G.adjList[v]:
                 self.relax(e)
 
