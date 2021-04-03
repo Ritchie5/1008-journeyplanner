@@ -95,7 +95,7 @@ class window:
                 print(path1)
 
                 # BackTracking: Finding shortest path Algo
-                path2 = back_tracker.get_shortest_path(self.graph.adjList, startLoc, destLoc)
+                path2 = back_tracker.find_shortest_path(self.graph.adjList, startLoc, destLoc)
                 print("Shortest Path")
                 print(path2)
                 self.stackWidget.setCurrentPage(self.backTrackPage)
