@@ -31,7 +31,7 @@ class Backtracking:
                 pass
         return paths
 
-    def find_shortest_path(self, graph1, start, end, time, path=[0]):
+    def get_shortest_path(self, graph1, start, end, time, path=[0]):
         path[0] += int(time)
         path = path + [start]
         if start == end:
