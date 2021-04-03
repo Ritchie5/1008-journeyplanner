@@ -40,7 +40,8 @@ class window:
         self.graph = Graph("graph.csv")
 
         self.mainWin()
-        self.pathWin()
+        self.dijkWin()
+        self.backTrackWin()
         self.stackWidget.setCurrentPage(self.mainPage)
 
     #Call function to setup main window
@@ -58,10 +59,15 @@ class window:
         self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
         self.stackWidget.addPage(self.mainPage.page)
 
-    def pathWin(self):
-        self.pathPage = newWidgetPage()
-        self.backButton = newPushButton(self.pathPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
-        self.stackWidget.addPage(self.pathPage.page)
+    def dijkWin(self):
+        self.dijkPage = newWidgetPage()
+        self.backButton = newPushButton(self.dijkPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.stackWidget.addPage(self.dijkPage.page)
+
+    def backTrackWin(self):
+        self.backTrackPage = newWidgetPage()
+        self.backButton = newPushButton(self.backTrackPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.stackWidget.addPage(self.backTrackPage.page)
 
     def dijkClicked(self):
         startLoc = self.startCombo.combo.currentText()
@@ -70,7 +76,7 @@ class window:
             # Dijkstra
             temp_Dij = Dijkstra(self.graph, startLoc)
             temp_Dij.find_path(destLoc)
-            self.stackWidget.setCurrentPage(self.pathPage)
+            self.stackWidget.setCurrentPage(self.dijkPage)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
 
@@ -92,7 +98,7 @@ class window:
                 path2 = back_tracker.get_shortest_path(self.graph.adjList, startLoc, destLoc)
                 print("Shortest Path")
                 print(path2)
-                self.stackWidget.setCurrentPage(self.pathPage)
+                self.stackWidget.setCurrentPage(self.backTrackPage)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
 
