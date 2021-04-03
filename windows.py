@@ -1,5 +1,8 @@
 import csv
 from widgets import *
+from Backtracking import Backtracking
+from Dijkstra import Dijkstra
+from graph import Graph
 
 class window:
 
@@ -34,6 +37,8 @@ class window:
         window.win.setCentralWidget(self.cenWidget)
         self.stackWidget = newStackWidget(self.cenWidget, 0, 0, self.__winWidth, self.__winHeight)
 
+        self.graph = Graph("graph.csv")
+
         self.mainWin()
         self.stackWidget.setCurrentPage(self.mainPage)
 
@@ -56,7 +61,9 @@ class window:
         startLoc = self.startCombo.combo.currentText()
         destLoc = self.destCombo.combo.currentText()
         if startLoc and destLoc in self.locations:
-            print (startLoc, destLoc)
+            # Dijkstra
+            temp_Dij = Dijkstra(self.graph, startLoc)
+            temp_Dij.find_path(destLoc)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
 
@@ -64,7 +71,20 @@ class window:
         startLoc = self.startCombo.combo.currentText()
         destLoc = self.destCombo.combo.currentText()
         if startLoc and destLoc in self.locations:
-            print (startLoc, destLoc)
+                back_tracker = Backtracking()
+                path = back_tracker.find_path(self.graph.adjList, startLoc, destLoc)
+                print("Path 1")
+                print(path)
+
+                # BackTracking: Finding all path Algo
+                path1 = back_tracker.find_all_path(self.graph.adjList, startLoc, destLoc)
+                print("All Path")
+                print(path1)
+
+                # BackTracking: Finding shortest path Algo
+                path2 = back_tracker.get_shortest_path(self.graph.adjList, startLoc, destLoc)
+                print("Shortest Path")
+                print(path2)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
 
