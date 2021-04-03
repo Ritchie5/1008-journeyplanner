@@ -40,6 +40,7 @@ class window:
         self.graph = Graph("graph.csv")
 
         self.mainWin()
+        self.pathWin()
         self.stackWidget.setCurrentPage(self.mainPage)
 
     #Call function to setup main window
@@ -57,6 +58,11 @@ class window:
         self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
         self.stackWidget.addPage(self.mainPage.page)
 
+    def pathWin(self):
+        self.pathPage = newWidgetPage()
+        self.backButton = newPushButton(self.pathPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.stackWidget.addPage(self.pathPage.page)
+
     def dijkClicked(self):
         startLoc = self.startCombo.combo.currentText()
         destLoc = self.destCombo.combo.currentText()
@@ -64,6 +70,7 @@ class window:
             # Dijkstra
             temp_Dij = Dijkstra(self.graph, startLoc)
             temp_Dij.find_path(destLoc)
+            self.stackWidget.setCurrentPage(self.pathPage)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
 
@@ -85,8 +92,12 @@ class window:
                 path2 = back_tracker.get_shortest_path(self.graph.adjList, startLoc, destLoc)
                 print("Shortest Path")
                 print(path2)
+                self.stackWidget.setCurrentPage(self.pathPage)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
+
+    def backClicked(self):
+        self.stackWidget.setCurrentPage(self.mainPage)
 
     def getLocation(self, file):
         filename = open("graph.csv", "r")
