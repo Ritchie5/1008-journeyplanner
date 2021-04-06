@@ -89,7 +89,3 @@ class Edge:
     def to_string(self):
         return "[" + str(self.source) + "-" + str(self.destination) + "," + str(self.weight) + "] "
 
-
-if __name__ == '__main__':
-    graph = Graph("graph.csv")
-    graph.print_list()
