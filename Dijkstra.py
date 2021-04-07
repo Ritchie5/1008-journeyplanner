@@ -50,8 +50,8 @@ class Dijkstra:
 
         # Check if Destination node current time is bigger than new time
         # If bigger change values of Designation node
-        if dest_node.time > source_node.time + int(e.time):
-            dest_node.time = source_node.time + int(e.time)
+        if dest_node.time > source_node.time + float(e.time):
+            dest_node.time = source_node.time + float(e.time)
             dest_node.cost = source_node.cost + float(e.cost)
             dest_node.edge = e
 
@@ -68,19 +68,17 @@ class Dijkstra:
         for node in self.list[dest]:
             time = node.time
             cost = node.cost
-
+      
         while dest != self.source:
             for node in self.list[dest]:
                 temp = node.edge
                 temp = temp.src()
                 path.append(temp)
                 dest = temp
-
         path.append(cost)
         path.append(time)
         path.reverse()
         return path
-
 
 # Dijkstra_node  class to contain variables
 class Dijkstra_node:
@@ -109,7 +107,10 @@ class Dijkstra_node:
 
 
 if __name__ == '__main__':
-    graph = Graph("graph.csv")
-    temp = Dijkstra(graph, "Simei")
-    path = temp.find_path("Orchard")
+    tag = "BUS"
+    graph = Graph("graph.csv",tag)
+    s = "Bukit Batok"
+    d = "Orchard"
+    temp = Dijkstra(graph, s)
+    path = temp.find_path(d)
     print(path)
