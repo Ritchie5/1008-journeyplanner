@@ -1,4 +1,5 @@
 import csv
+import webbrowser
 from widgets import *
 from Backtracking import Backtracking
 from Dijkstra import Dijkstra
@@ -21,6 +22,8 @@ class window:
     __comboHeight = 40
     __tableWidth = 250
     __tableHeight = 500
+    __radioWidth = 150
+    __radioHeight = 40
 
     #Widget Coordinates
     __logoX = (__winWidth - __comboWidth) / 2
@@ -33,6 +36,8 @@ class window:
     __buttonY = __comboY + 100
     __tableX = (__winWidth - __tableWidth) / 2
     __tableY = 100
+    __radioX = (__comboX + __comboWidth) + 20
+    __radioY = __comboY
 
     tag = "MRT"
 
@@ -111,19 +116,24 @@ class window:
         self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
         self.dijkButton = newPushButton(self.mainPage.page, self.__buttonX, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.dijkClicked, "Use Dijkstra", "Ariel", 12)
         self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
+        self.mrtRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
+        self.busRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY+50, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
         self.stackWidget.addPage(self.mainPage.page)
 
     def dijkWin(self):
         self.dijkPage = newWidgetPage()
-        self.backButton = newPushButton(self.dijkPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.backButton = newPushButton(self.dijkPage.page, self.__buttonX+250, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.dijkLinkButton = newPushButton(self.dijkPage.page, self.__buttonX, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
         self.dijkTable = newTable(self.dijkPage.page, self.__tableWidth+165, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.stackWidget.addPage(self.dijkPage.page)
 
     def backTrackWin(self):
         self.backTrackPage = newWidgetPage()
-        self.backButton = newPushButton(self.backTrackPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.backButton = newPushButton(self.backTrackPage.page, self.__buttonX+358, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.btLinkButton = newPushButton(self.backTrackPage.page, self.__buttonX-107, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
         self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-400, self.__tableY, self.__tableWidth+500, self.__tableHeight)
         self.backTrackTableShort = newTable(self.backTrackPage.page, self.__tableX+380, self.__tableY, self.__tableWidth, self.__tableHeight)
+        self.allPathImage = newLabel(self.backTrackPage.page, 0, 0, self.__labelWidth, self.__labelHeight, "", "allPath.png")
         self.stackWidget.addPage(self.backTrackPage.page)
 
     def getLocation(self, file):
@@ -139,5 +149,7 @@ class window:
         #         locArr.append(x)
         # return locArr
         g = Graph("graph.csv", self.tag)
-        print(g.adjList)
         return g.adjList
+
+    def openLink(self):
+        webbrowser.open_new("https://www.tomtom.com/en_gb/traffic-index/singapore-traffic/")
