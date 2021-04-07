@@ -201,3 +201,14 @@ class newTable:
     
     def addCol(self, numCol):
         self.table.setColumnCount(numCol)
+
+class newRadioButton:
+    def __init__(self, page, x, y, width, height, text, fontStyle="", fontSize=""):
+        self.radio = QRadioButton(text, page)
+        self.radio.setGeometry(x, y, width, height)
+        if fontStyle and fontSize:
+            self.setFont(fontStyle, fontSize)
+
+    def setFont(self, fontStyle, fontSize):
+        #Set font style and font size of radiobutton
+        self.radio.setFont(QFont(fontStyle, fontSize))

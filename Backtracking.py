@@ -4,7 +4,7 @@ from graph import Graph
 class Backtracking:
     # Find shortest path based on time
     def find_shortest_path(self, graph1, start, end, time, cost):
-        paths = self.find_all_path(Backtracking, graph1, start, end, time, cost)
+        paths = self.find_all_path(graph1, start, end, time, cost)
 
         shortest_time = paths[0][0]
         shortest_path = 0
@@ -16,8 +16,8 @@ class Backtracking:
         return paths[shortest_path]
 
         # Find all possible paths
-    def find_all_path(self, graph1, start, end, time, cost, path=[]):
-        paths = back_tracker.find_all_path1(back_tracker, graph.adjList, start, end, 0, 0.0)
+    def find_all_path(self, graph1, start, end, time, cost):
+        paths = self.find_all_path1(graph1, start, end, time, cost)
         # Format paths
         arr = [[0, 0] for j in range(len(paths))]
         for x in range(0, len(paths)):
@@ -47,7 +47,7 @@ class Backtracking:
             if node.destination not in path:
                 time = node.time
                 cost = node.cost
-                new_path = self.find_all_path1(Backtracking, graph1, node.destination, end, time, cost, path)
+                new_path = self.find_all_path1(graph1, node.destination, end, time, cost, path)
                 if new_path is not None:
                     # append all new paths to all_path array
                     for new_path in new_path:
@@ -62,5 +62,4 @@ if __name__ == '__main__':
     tag = "MRTBUS"
     graph = Graph("graph.csv",tag)
     back_tracker = Backtracking
-    paths = back_tracker.find_shortest_path(Backtracking, graph.adjList, "Simei", "Bedok", 0, 0.0)
-    print(paths)
+    paths = back_tracker.find_shortest_path(graph.adjList, "Simei", "Bedok", 0, 0.0)
