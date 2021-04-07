@@ -61,7 +61,6 @@ class window:
         destLoc = self.destCombo.combo.currentText()
         if startLoc and destLoc in self.locations:
                 back_tracker = Backtracking()
-
                 # BackTracking: Finding all path Algo
                 pathAll = back_tracker.find_all_path(self.graph.adjList, startLoc, destLoc, 0, 0)
                 i = j = k = rowCount = 0
@@ -79,9 +78,9 @@ class window:
 
                 # BackTracking: Finding shortest path Algo
                 pathShort = back_tracker.find_shortest_path(self.graph.adjList, startLoc, destLoc, 0, 0)
-                self.backTrackTableShort.addRow(len(pathShort[0][2:]))
-                self.backTrackTableShort.addCol(len(pathShort))
-                self.backTrackTableShort.addData(pathShort[0][2:], 0)
+                self.backTrackTableShort.addRow(len(pathShort[2:]))
+                self.backTrackTableShort.addCol(1)
+                self.backTrackTableShort.addData(pathShort[2:], 0)
                 self.stackWidget.setCurrentPage(self.backTrackPage)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
