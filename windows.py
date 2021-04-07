@@ -34,6 +34,8 @@ class window:
     __tableX = (__winWidth - __tableWidth) / 2
     __tableY = 100
 
+    tag = "MRT"
+
     #Button functions
     def dijkClicked(self):
         startLoc = self.startCombo.combo.currentText()
@@ -89,7 +91,7 @@ class window:
         window.win.setCentralWidget(self.cenWidget)
         self.stackWidget = newStackWidget(self.cenWidget, 0, 0, self.__winWidth, self.__winHeight)
 
-        self.graph = Graph("graph.csv")
+        self.graph = Graph("graph.csv",self.tag,"")
 
         self.mainWin()
         self.dijkWin()
@@ -125,14 +127,5 @@ class window:
         self.stackWidget.addPage(self.backTrackPage.page)
 
     def getLocation(self, file):
-        filename = open("graph.csv", "r")
-        file = csv.DictReader(filename)
-        tempArr = []
-        locArr = []
-        for col in file:
-            tempArr.append(col["Pasir ris"])
-        locArr.append("Pasir ris")
-        for x in tempArr:
-            if x not in locArr:
-                locArr.append(x)
-        return locArr
+        g = Graph(file,self.tag,"")
+        return g.adjList

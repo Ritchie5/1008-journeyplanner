@@ -4,7 +4,7 @@ import csv
 class Graph:
     adjList = {}
 
-    def __init__(self, file,tag):
+    def __init__(self, file,tag,congest):
         with open(file) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             # Read a row from CSV file
@@ -12,9 +12,12 @@ class Graph:
                 mode = row[0]   # type  Mrt or Bus data
                 v1 = row[1]     # v1    source
                 v2 = row[2]     # v2    destination
-                time = row[3]   # time  time from source to destination
+                time = float(row[3])   # time  time from source to destination
                 cost = row[4]   # cost  cost from source to destination
 
+                if v1 == congest:
+                    time +=15
+                
                 if mode in tag or mode == 'WALK':
                     e = Edge(v1, v2, time, cost, mode)    # e edge from source to destination
                     e1 = Edge(v2, v1, time, cost, mode )  # e1 edge from destination to source

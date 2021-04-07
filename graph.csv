@@ -1,302 +1,303 @@
-MRT,Pasir ris,Tampines,4,0.5
-MRT,Tampines,Simei,2,0.6
-MRT,Tampines,75009:72,4,0.2
-MRT,Simei,Taneh Merah,2,0.3
-MRT,Taneh Merah,Changi Airport,4,0.4
-MRT,Taneh Merah,Bedok,4,0.5
-MRT,Bedok,Kembangan,3,0.6
-MRT,Kembangan,Eunos,4,0.2
-MRT,Eunos,Paya Lebar,4,0.3
-MRT,Paya Lebar,Aljunied,4,0.4
-MRT,Aljunied,Kallang,1,0.5
-MRT,Kallang,Lavender,1,0.6
-MRT,Lavender,Bugis,5,0.2
-MRT,Bugis,City Hall,3,0.3
-MRT,City Hall,Raffles Place,5,0.4
-MRT,City Hall,Dhoby Ghaut,1,0.5
-MRT,Raffles Place,Tanjong Pagar,4,0.6
-MRT,Raffles Place,Marina Bay,5,0.2
-MRT,Tanjong Pagar,Outram Park,2,0.3
-MRT,Outram Park,Tiong Bahru,3,0.4
-MRT,Tiong Bahru,Redhill,3,0.5
-MRT,Redhill,Queenstown,1,0.6
-MRT,Queenstown,Commonwealth,5,0.2
-MRT,Commonwealth,Buona Vista,4,0.3
-MRT,Buona Vista,Dover,1,0.4
-MRT,Dover,Clementi,3,0.5
-MRT,Clementi,Jurong East,4,0.6
-MRT,Jurong East,Chinese Garden,3,0.2
-MRT,Jurong East,Bukit Batok,2,0.3
-MRT,Chinese Garden,Lakeside,2,0.4
-MRT,Lakeside,Boon Lay,2,0.5
-MRT,Boon Lay,Pioneer,5,0.6
-MRT,Pioneer,Joo Koon,4,0.2
-MRT,Marina South Pier,Marina Bay,3,0.3
-MRT,Marina Bay,Raffles Place,4,0.4
-MRT,Dhoby Ghaut,City Hall,3,0.5
-MRT,Dhoby Ghaut,Somerset,3,0.5
-MRT,Somerset,Orchard,2,0.6
-MRT,Orchard,Newton,2,0.2
-MRT,Newton,Novena,3,0.3
-MRT,Novena,Toa Payoh,4,0.4
-MRT,Toa Payoh,Braddell,1,0.5
-MRT,Braddell,Bishan,1,0.6
-MRT,Bishan,Ang Mo Kio,1,0.2
-MRT,Ang Mo Kio,Yio Chu Kang,1,0.3
-MRT,Yio Chu Kang,Khatib,2,0.4
-MRT,Khatib,Yishun,4,0.6
-MRT,Yishun,Canberra,2,0.2
-MRT,Canberra,Sembawang,5,0.3
-MRT,Sembawang,Admiralty,1,0.4
-MRT,Admiralty,Woodlands,1,0.5
-MRT,Woodlands,Marsiling,3,0.6
-MRT,Marsiling,Kranji,3,0.2
-MRT,Kranji,Sungei Kadut,4,0.3
-MRT,Sungei Kadut,Yew Tee,3,0.4
-MRT,Yew Tee,Choa Chu Kang,2,0.5
-MRT,Choa Chu Kang,Bukit Gombak,3,0.6
-MRT,Bukit Gombak,Bukit Batok,3,0.2
-MRT,Bukit Batok,Jurong East,1,0.3
-BUS,Bukit Batok,43009:106,2,0
-BUS,43009:106,43179:106,1.047,0.5
-BUS,43179:106,43189:106,0.698,0.5
-BUS,43189:106,43619:106,0.698,0.5
-BUS,43619:106,43629:106,0.349,0.5
-BUS,43629:106,42319:106,0.698,0.5
-BUS,42319:106,28109:106,1.222,0.5
-BUS,28109:106,28189:106,0.698,0.5
-BUS,28189:106,28019:106,1.222,0.5
-BUS,28019:106,20109:106,1.047,0.5
-BUS,20109:106,17189:106,0.698,0.5
-BUS,17189:106,17179:106,0.524,0.5
-BUS,17179:106,17169:106,0.524,0.5
-WALK,17179:106,Clementi,2,0
-BUS,17169:106,17159:106,0.698,0.5
-BUS,17159:106,19049:106,0.873,0.5
-BUS,19049:106,19039:106,0.873,0.5
-WALK,19039:106,Dover,2,0
-BUS,19039:106,19029:106,0.873,0.5
-BUS,19029:106,19019:106,0.524,0.5
-BUS,19019:106,11199:106,0.698,0.5
-BUS,11199:106,11189:106,0.873,0.5
-BUS,11189:106,11401:106,0.698,0.5
-BUS,11401:106,11239:106,1.92,0.5
-BUS,11239:106,11229:106,0.698,0.5
-BUS,11229:106,11219:106,0.349,0.5
-BUS,11219:106,11209:106,0.698,0.5
-BUS,11209:106,13029:106,0.698,0.5
-BUS,13029:106,13019:106,1.222,0.5
-BUS,13019:106,09149:106,0.174,0.5
-BUS,09149:106,09159:106,1.047,0.5
-BUS,09159:106,09169:106,0.523,0.5
-BUS,09169:106,09179:106,0.524,0.5
-BUS,09179:106,09048:106,0.873,0.5
-BUS,09048:106,09038:106,1.047,0.5
-WALK,09048:106,Orchard,2,0
-BUS,09038:106,08138:106,0.698,0.5
-WALK,09038:106,Somerset,2,0
-BUS,08138:106,08057:106,0.698,0.5
-WALK,08057:106,Dhoby Ghaut,2,0
-BUS,08057:106,08069:106,0.873,0.5
-BUS,08069:106,04179:106,0.524,0.5
-BUS,04179:106,02049:106,0.698,0.5
-BUS,02049:106,02151:106,1.047,0.5
-BUS,02151:106,02161:106,1.222,0.5
-BUS,02161:106,02171:106,0.524,0.5
-BUS,02171:106,03509:106,1.571,0.5
-BUS,03509:106,03519:106,0.524,0.5
-BUS,03519:106,03539:106,1.047,0.5
-BUS,03539:106,03529:106,0.698,0.5
-WALK,03539:106,Marina Bay,2,0.1
-BUS,03529:106,03129:106,1.047,0.5
-BUS,03129:106,03218:106,0.873,0.5
-BUS,03218:106,03239:106,0.349,0.5
-WALK,03239:106,Tanjong Pagar,2,0
-BUS,03239:106,03222:106,1.396,0.5
-BUS,03222:106,03111:106,1.222,0.5
-BUS,03111:106,03071:106,0.524,0.5
-BUS,03071:106,03381:106,1.047,0.5
-BUS,03381:106,03391:106,0.349,0.5
-WALK,03391:106,Marina Bay,2,0.1
-BUS,03391:106,03511:106,1.222,0.5
-BUS,03511:106,03501:106,0.698,0.5
-BUS,03501:106,02051:106,1.222,0.5
-BUS,02051:106,02061:106,0.524,0.5
-BUS,02061:106,04111:106,1.222,0.5
-BUS,04111:106,04121:106,0.698,0.5
-BUS,04121:106,08041:106,0.524,0.5
-BUS,08041:106,08031:106,0.524,0.5
-BUS,08031:106,08111:106,0.873,0.5
-WALK,08031:106,Dhoby Ghaut,2,0
-BUS,08111:106,08121:106,0.524,0.5
-BUS,08121:106,09059:106,0.524,0.5
-WALK,08121:106,Somerset,2,0
-BUS,09059:106,09022:106,0.873,0.5
-BUS,09022:106,09111:106,0.873,0.5
-WALK,09022:106,Orchard,2,0
-BUS,09111:106,09121:106,0.524,0.5
-BUS,09121:106,09131:106,1.047,0.5
-BUS,09131:106,09141:106,0.523,0.5
-BUS,09141:106,13011:106,0.524,0.5
-BUS,13011:106,13021:106,1.047,0.5
-BUS,13021:106,11201:106,0.524,0.5
-BUS,11201:106,11211:106,0.523,0.5
-BUS,11211:106,11221:106,0.873,0.5
-BUS,11221:106,11231:106,0.873,0.5
-BUS,11231:106,11419:106,1.222,0.5
-BUS,11419:106,11409:106,0.873,0.5
-BUS,11409:106,11181:106,0.523,0.5
-BUS,11181:106,11191:106,0.873,0.5
-BUS,11191:106,19011:106,0.873,0.5
-WALK,11191:106,Buona Vista,2,0
-BUS,19011:106,19021:106,0.698,0.5
-BUS,19021:106,19031:106,0.698,0.5
-BUS,19031:106,19041:106,0.698,0.5
-WALK,19031:106,Dover,2,0
-BUS,19041:106,17151:106,1.222,0.5
-BUS,17151:106,17161:106,0.523,0.5
-BUS,17161:106,17171:106,0.698,0.5
-BUS,17171:106,17181:106,0.524,0.5
-WALK,17171:106,Clementi,2,0
-BUS,17181:106,20101:106,0.523,0.5
-BUS,20101:106,28011:106,1.047,0.5
-BUS,28011:106,28181:106,1.396,0.5
-BUS,28181:106,28101:106,0.698,0.5
-BUS,28101:106,42311:106,1.222,0.5
-BUS,42311:106,43621:106,0.698,0.5
-BUS,43621:106,43611:106,0.524,0.5
-BUS,43611:106,43181:106,0.523,0.5
-BUS,43181:106,43171:106,0.698,0.5
-BUS,43171:106,43009:106,0.873,0.5
-WALK,Woodlands,46009:960,2,0
-BUS,46009:960,46549:960,1.571,0.28
-BUS,46549:960,46539:960,0.698,0.13
-BUS,46539:960,46529:960,0.698,0.13
-BUS,46529:960,46491:960,0.524,0.09
-WALK,46529:960,Marsiling,2,0
-BUS,46491:960,46381:960,1.222,0.22
-BUS,46381:960,45139:960,1.222,0.22
-BUS,45139:960,45129:960,0.698,0.13
-WALK,45139:960,Kranji,2,0
-BUS,45129:960,45119:960,0.698,0.13
-BUS,45119:960,45109:960,0.873,0.16
-BUS,45109:960,45099:960,0.873,0.16
-BUS,45099:960,45079:960,0.698,0.13
-BUS,45079:960,45069:960,0.873,0.16
-BUS,45069:960,45059:960,0.524,0.09
-BUS,45059:960,45049:960,1.047,0.19
-BUS,45049:960,45039:960,0.349,0.06
-WALK,45049:960,Yew Tee,2,0
-BUS,45039:960,45029:960,0.524,0.09
-BUS,45029:960,44999:960,0.349,0.06
-BUS,44999:960,45019:960,0.698,0.13
-BUS,45019:960,44069:960,0.524,0.09
-BUS,44069:960,44059:960,0.349,0.06
-BUS,44059:960,44049:960,0.873,0.16
-BUS,44049:960,44251:960,0.349,0.06
-BUS,44251:960,44739:960,0.698,0.13
-BUS,44739:960,44201:960,0.698,0.13
-BUS,44201:960,44211:960,0.524,0.09
-BUS,44211:960,44221:960,0.523,0.09
-BUS,44221:960,44261:960,0.873,0.16
-BUS,44261:960,40239:960,16.752,3
-BUS,40239:960,40089:960,0.698,0.13
-BUS,40089:960,40079:960,0.524,0.09
-BUS,40079:960,40119:960,0.524,0.09
-BUS,40119:960,40069:960,0.349,0.06
-BUS,40069:960,40059:960,0.524,0.09
-BUS,40059:960,40049:960,0.698,0.13
-BUS,40049:960,40039:960,0.524,0.09
-WALK,40049:960,Newton,2,0
-BUS,40039:960,40029:960,0.524,0.09
-BUS,40029:960,40279:960,0.698,0.13
-BUS,40279:960,40019:960,0.873,0.16
-BUS,40019:960,07539:960,0.698,0.13
-BUS,07539:960,07589:960,0.698,0.13
-BUS,07589:960,01059:960,0.698,0.13
-WALK,01059:960,Bugis,2,0
-BUS,Bugis,01112:960,2,0
-BUS,01112:960,07551:960,0.524,0.09
-BUS,07551:960,07531:960,0.524,0.09
-BUS,07531:960,40011:960,0.698,0.13
-BUS,40011:960,40271:960,0.873,0.16
-BUS,40271:960,40021:960,0.873,0.16
-BUS,40021:960,40031:960,0.524,0.09
-BUS,40031:960,40041:960,0.698,0.13
-BUS,40041:960,40051:960,0.698,0.13
-WALK,40041:960,Newton,2,0
-BUS,40051:960,40111:960,0.698,0.13
-BUS,40111:960,40071:960,0.698,0.13
-BUS,40071:960,40081:960,0.698,0.13
-BUS,40081:960,40231:960,0.524,0.09
-BUS,40231:960,44269:960,15.88,2.84
-BUS,44269:960,44229:960,0.698,0.13
-BUS,44229:960,44219:960,0.524,0.09
-BUS,44219:960,44209:960,0.523,0.09
-BUS,44209:960,44731:960,0.698,0.13
-BUS,44731:960,44259:960,0.524,0.09
-BUS,44259:960,44041:960,0.698,0.13
-BUS,44041:960,44051:960,0.873,0.16
-BUS,44051:960,43991:960,0.349,0.06
-BUS,43991:960,44061:960,0.349,0.06
-BUS,44061:960,45011:960,0.349,0.06
-BUS,45011:960,45021:960,0.698,0.13
-BUS,45021:960,45031:960,0.698,0.13
-BUS,45031:960,45041:960,0.873,0.16
-WALK,45031:960,Yew Tee,2,0
-BUS,45041:960,45051:960,0.524,0.09
-BUS,45051:960,45061:960,0.698,0.13
-BUS,45061:960,45071:960,0.523,0.09
-BUS,45071:960,45091:960,0.873,0.16
-BUS,45091:960,45101:960,0.873,0.16
-BUS,45101:960,45111:960,0.698,0.13
-BUS,45111:960,45121:960,0.873,0.16
-BUS,45121:960,45131:960,0.524,0.09
-BUS,45131:960,46389:960,1.396,0.25
-WALK,45131:960,Kranji,2,0
-BUS,46389:960,46499:960,1.222,0.22
-BUS,46499:960,46521:960,0.349,0.06
-BUS,46521:960,46531:960,0.698,0.13
-WALK,46521:960,Marsiling,2,0
-BUS,46531:960,46541:960,0.698,0.13
-BUS,46541:960,46009:960,1.222,0.22
-BUS,Newton,40189:124,2,0
-BUS,40189:124,40179:124,0.349,0.06
-BUS,40179:124,09219:124,1.396,0.25
-BUS,09219:124,09047:124,0.698,0.13
-BUS,09047:124,09037:124,0.873,0.16
-WALK,09047:124,Orchard,2,0
-BUS,09037:124,08138:124,1.222,0.22
-BUS,08138:124,08057:124,0.698,0.13
-BUS,08057:124,08069:124,0.873,0.16
-WALK,08057:124,Dhoby Ghaut,2,0
-BUS,08069:124,04167:124,1.396,0.25
-BUS,04167:124,04249:124,0.523,0.09
-WALK,04167:124,City Hall,2,0
-BUS,04249:124,05029:124,0.698,0.13
-BUS,05029:124,05131:124,1.047,0.19
-BUS,05131:124,05039:124,0.698,0.13
-BUS,05039:124,05019:124,0.524,0.09
-BUS,05019:124,05069:124,0.174,0.03
-BUS,05069:124,Outram Park,2,0
-BUS,Outram Park,10018:124,2,0
-BUS,10018:124,05012:124,0.698,0.13
-BUS,05012:124,05022:124,1.047,0.19
-BUS,05022:124,04222:124,0.873,0.16
-BUS,04222:124,04223:124,0.524,0.09
-BUS,04223:124,04143:124,0.698,0.13
-BUS,04143:124,04121:124,0.523,0.09
-WALK,04143:124,City Hall,2,0
-BUS,04121:124,08041:124,0.524,0.09
-BUS,08041:124,08031:124,0.523,0.09
-BUS,08031:124,08111:124,0.873,0.16
-WALK,08031:124,Dhoby Ghaut,2,0
-BUS,08111:124,08121:124,0.524,0.09
-BUS,08121:124,09011:124,1.222,0.22
-WALK,08121:124,Somerset,2,0
-BUS,09011:124,09023:124,0.524,0.09
-BUS,09023:124,09212:124,1.047,0.19
-WALK,09023:124,Orchard,2,0
-BUS,09212:124,40171:124,1.047,0.19
-BUS,40171:124,40181:124,0.524,0.09
-BUS,40181:124,Newton,2,0
+MRT,Pasir ris,Tampines,4,0.75
+MRT,Tampines,Simei,2,0.38
+MRT,Simei,Taneh Merah,2,0.38
+MRT,Taneh Merah,Changi Airport,4,0.75
+MRT,Taneh Merah,Bedok,4,0.75
+MRT,Bedok,Kembangan,3,0.56
+MRT,Kembangan,Eunos,4,0.75
+MRT,Eunos,Paya Lebar,4,0.75
+MRT,Paya Lebar,Aljunied,4,0.75
+MRT,Aljunied,Kallang,1,0.19
+MRT,Tampines,Pasir Ris,4,0.75
+MRT,Kallang,Lavender,1,0.19
+MRT,Lavender,Bugis,5,0.94
+MRT,Bugis,City Hall,3,0.56
+MRT,City Hall,Raffles Place,5,0.94
+MRT,City Hall,Dhoby Ghaut,1,0.19
+MRT,Raffles Place,Tanjong Pagar,4,0.75
+MRT,Raffles Place,Marina Bay,5,0.94
+MRT,Tanjong Pagar,Outram Park,2,0.38
+MRT,Outram Park,Tiong Bahru,3,0.56
+MRT,Tiong Bahru,Redhill,3,0.56
+MRT,Redhill,Queenstown,1,0.19
+MRT,Queenstown,Commonwealth,5,0.94
+MRT,Commonwealth,Buona Vista,4,0.75
+MRT,Buona Vista,Dover,1,0.19
+MRT,Dover,Clementi,3,0.56
+MRT,Clementi,Jurong East,4,0.75
+MRT,Jurong East,Chinese Garden,3,0.56
+MRT,Jurong East,Bukit Batok,2,0.38
+MRT,Chinese Garden,Lakeside,2,0.38
+MRT,Lakeside,Boon Lay,2,0.38
+MRT,Boon Lay,Pioneer,5,0.94
+MRT,Pioneer,Joo Koon,4,0.75
+MRT,Marina South Pier,Marina Bay,3,0.56
+MRT,Marina Bay,Raffles Place,4,0.75
+MRT,Dhoby Ghaut,City Hall,3,0.56
+MRT,Dhoby Ghaut,Somerset,3,0.56
+MRT,Somerset,Orchard,2,0.38
+MRT,Orchard,Newton,2,0.38
+MRT,Newton,Novena,3,0.56
+MRT,Novena,Toa Payoh,4,0.75
+MRT,Toa Payoh,Braddell,1,0.19
+MRT,Braddell,Bishan,1,0.19
+MRT,Bishan,Ang Mo Kio,1,0.19
+MRT,Ang Mo Kio,Yio Chu Kang,1,0.19
+MRT,Yio Chu Kang,Khatib,2,0.38
+MRT,Khatib,Yishun,4,0.75
+MRT,Yishun,Canberra,2,0.38
+MRT,Canberra,Sembawang,5,0.94
+MRT,Sembawang,Admiralty,1,0.19
+MRT,Admiralty,Woodlands,1,0.19
+MRT,Woodlands,Marsiling,3,0.56
+MRT,Marsiling,Kranji,3,0.56
+MRT,Kranji,Sungei Kadut,4,0.75
+MRT,Sungei Kadut,Yew Tee,3,0.56
+MRT,Yew Tee,Choa Chu Kang,2,0.38
+MRT,Choa Chu Kang,Bukit Gombak,3,0.56
+MRT,Bukit Gombak,Bukit Batok,3,0.56
+MRT,Bukit Batok,Jurong East,1,0.19
+BUS,Bus 106-43009: Bt Batok Int,Bus 106-43179: Blk 231,1.05,0.19
+BUS,Bus 106-43179: Blk 231,Bus 106-43189: Blk 283,0.7,0.13
+BUS,Bus 106-43189: Blk 283,Bus 106-43619: Blk 289E,0.7,0.13
+BUS,Bus 106-43619: Blk 289E,Bus 106-43629: Yusof Ishak Sec Sch,0.35,0.06
+BUS,Bus 106-43629: Yusof Ishak Sec Sch,Bus 106-42319: Burgundy Hill,0.7,0.13
+BUS,Bus 106-42319: Burgundy Hill,Bus 106-28109: SMRT Ulu Pandan Depot,1.22,0.22
+BUS,Bus 106-28109: SMRT Ulu Pandan Depot,Bus 106-28189: Aft Toh Tuck Lk,0.7,0.13
+BUS,Bus 106-28189: Aft Toh Tuck Lk,Bus 106-28019: Aft Toh Tuck Ave,1.22,0.22
+BUS,Bus 106-28019: Aft Toh Tuck Ave,Bus 106-20109: Blk 203,1.05,0.19
+BUS,Bus 106-20109: Blk 203,Bus 106-17189: Blk 317,0.7,0.13
+BUS,Bus 106-17189: Blk 317,Bus 106-17179: Clementi Station Exit B,0.52,0.09
+BUS,Bus 106-17179: Clementi Station Exit B,Bus 106-17169: Blk 329,0.52,0.09
+BUS,Bus 106-17169: Blk 329,Bus 106-17159: Blk 365,0.7,0.13
+BUS,Bus 106-17159: Blk 365,Bus 106-19049: Sch Of Science & Tech,0.87,0.16
+BUS,Bus 106-19049: Sch Of Science & Tech,Bus 106-19039: Dover Stn Exit B,0.87,0.16
+BUS,Bus 106-19039: Dover Stn Exit B,Bus 106-19029: Opp SP SMA,0.87,0.16
+BUS,Bus 106-19029: Opp SP SMA,Bus 106-19019: Blk 27,0.52,0.09
+BUS,Bus 106-19019: Blk 27,Bus 106-11199: Blk 15,0.7,0.13
+BUS,Bus 106-11199: Blk 15,Bus 106-11189: Blk 43,0.87,0.16
+BUS,Bus 106-11189: Blk 43,Bus 106-11401: Holland V Stn/Blk 12,0.7,0.13
+BUS,Bus 106-11401: Holland V Stn/Blk 12,Bus 106-11239: Fairlodge,1.92,0.34
+BUS,Bus 106-11239: Fairlodge,Bus 106-11229: Les Jardins de Holland,0.7,0.13
+BUS,Bus 106-11229: Les Jardins de Holland,Bus 106-11219: Great Eastern Mansions,0.35,0.06
+BUS,Bus 106-11219: Great Eastern Mansions,Bus 106-11209: Opp Peirce Rd,0.7,0.13
+BUS,Bus 106-11209: Opp Peirce Rd,Bus 106-13029: Bef Tyersall Ave,0.7,0.13
+BUS,Bus 106-13029: Bef Tyersall Ave,Bus 106-13019: S'pore Botanic Gdns,1.22,0.22
+BUS,Bus 106-13019: S'pore Botanic Gdns,Bus 106-09149: Opp British Council,0.17,0.03
+BUS,Bus 106-09149: Opp British Council,Bus 106-09159: Aft Tomlinson Rd,1.05,0.19
+BUS,Bus 106-09159: Aft Tomlinson Rd,Bus 106-09169: Delfi Orchard,0.52,0.09
+BUS,Bus 106-09169: Delfi Orchard,Bus 106-09179: Royal Thai Embassy,0.52,0.09
+BUS,Bus 106-09179: Royal Thai Embassy,Bus 106-09048: Orchard Stn/Lucky Plaza,0.87,0.16
+BUS,Bus 106-09048: Orchard Stn/Lucky Plaza,Bus 106-09038: Opp Somerset Stn,1.05,0.19
+BUS,Bus 106-09038: Opp Somerset Stn,Bus 106-08138: Concorde Hotel S'pore,0.7,0.13
+BUS,Bus 106-08138: Concorde Hotel S'pore,Bus 106-08057: Dhoby Ghaut Stn,0.7,0.13
+BUS,Bus 106-08057: Dhoby Ghaut Stn,Bus 106-08069: Bencoolen Stn Exit B,0.87,0.16
+BUS,Bus 106-08069: Bencoolen Stn Exit B,Bus 106-04179: Aft Bras Basah Stn Exit A,0.52,0.09
+BUS,Bus 106-04179: Aft Bras Basah Stn Exit A,Bus 106-02049: Raffles Hotel,0.7,0.13
+BUS,Bus 106-02049: Raffles Hotel,Bus 106-02151: Suntec Convention Ctr,1.05,0.19
+BUS,Bus 106-02151: Suntec Convention Ctr,Bus 106-02161: Promenade Stn,1.22,0.22
+BUS,Bus 106-02161: Promenade Stn,Bus 106-02171: Opp The Ritz-Carlton,0.52,0.09
+BUS,Bus 106-02171: Opp The Ritz-Carlton,Bus 106-03509: Bayfront Stn Exit B/MBS,1.57,0.28
+BUS,Bus 106-03509: Bayfront Stn Exit B/MBS,Bus 106-03519: Bayfront Stn Exit A,0.52,0.09
+BUS,Bus 106-03519: Bayfront Stn Exit A,Bus 106-03539: Marina Bay Stn,1.05,0.19
+BUS,Bus 106-03539: Marina Bay Stn,Bus 106-03529: Downtown Stn,0.7,0.13
+BUS,Bus 106-03529: Downtown Stn,Bus 106-03129: UIC Bldg,1.05,0.19
+BUS,Bus 106-03129: UIC Bldg,Bus 106-03218: Opp MAS Bldg,0.87,0.16
+BUS,Bus 106-03218: Opp MAS Bldg,Bus 106-03239: Shenton Way Ter,0.35,0.06
+BUS,Bus 106-03239: Shenton Way Ter,Bus 106-03222: Hub Synergy Pt,1.4,0.25
+BUS,Bus 106-03222: Hub Synergy Pt,Bus 106-03111: Aft Capital Twr,1.22,0.22
+BUS,Bus 106-03111: Aft Capital Twr,Bus 106-03071: Opp SO Sofitel S'pore,0.52,0.09
+BUS,Bus 106-03071: Opp SO Sofitel S'pore,Bus 106-03381: The Sail,1.05,0.19
+BUS,Bus 106-03381: The Sail,Bus 106-03391: Marina Bay Financial Ctr,0.35,0.06
+BUS,Bus 106-03391: Marina Bay Financial Ctr,Bus 106-03511: Aft Bayfront Stn Exit E,1.22,0.22
+BUS,Bus 106-03511: Aft Bayfront Stn Exit E,Bus 106-03501: Marina Bay Sands Theatre,0.7,0.13
+BUS,Bus 106-03501: Marina Bay Sands Theatre,Bus 106-02051: The Float @ Marina Bay,1.22,0.22
+BUS,Bus 106-02051: The Float @ Marina Bay,Bus 106-02061: The Esplanade,0.52,0.09
+BUS,Bus 106-02061: The Esplanade,Bus 106-04111: Capitol Bldg,1.22,0.22
+BUS,Bus 106-04111: Capitol Bldg,Bus 106-04121: SMU,0.7,0.13
+BUS,Bus 106-04121: SMU,Bus 106-08041: YMCA,0.52,0.09
+BUS,Bus 106-08041: YMCA,Bus 106-08031: Dhoby Ghaut Stn Exit B,0.52,0.09
+BUS,Bus 106-08031: Dhoby Ghaut Stn Exit B,Bus 106-08111: Winsland Hse,0.87,0.16
+BUS,Bus 106-08111: Winsland Hse,Bus 106-08121: Somerset Stn,0.52,0.09
+BUS,Bus 106-08121: Somerset Stn,Bus 106-09059: Natl Youth Council,0.52,0.09
+BUS,Bus 106-09059: Natl Youth Council,Bus 106-09022: Bef Orchard Stn Exit B,0.87,0.16
+BUS,Bus 106-09022: Bef Orchard Stn Exit B,Bus 106-09111: Opp Four Seasons Hotel,0.87,0.16
+BUS,Bus 106-09111: Opp Four Seasons Hotel,Bus 106-09121: Bef Tomlinson Rd,0.52,0.09
+BUS,Bus 106-09121: Bef Tomlinson Rd,Bus 106-09131: Grange Residences,1.05,0.19
+BUS,Bus 106-09131: Grange Residences,Bus 106-09141: British Council,0.52,0.09
+BUS,Bus 106-09141: British Council,Bus 106-13011: Opp S'pore Botanic Gdns,0.52,0.09
+BUS,Bus 106-13011: Opp S'pore Botanic Gdns,Bus 106-13021: Aft Min of Foreign Affairs,1.05,0.19
+BUS,Bus 106-13021: Aft Min of Foreign Affairs,Bus 106-11201: CSC Dempsey Clubhse,0.52,0.09
+BUS,Bus 106-11201: CSC Dempsey Clubhse,Bus 106-11211: Aft Peirce Rd,0.52,0.09
+BUS,Bus 106-11211: Aft Peirce Rd,Bus 106-11221: Lien Twrs,0.87,0.16
+BUS,Bus 106-11221: Lien Twrs,Bus 106-11231: Aft Estoril Mansions,0.87,0.16
+BUS,Bus 106-11231: Aft Estoril Mansions,Bus 106-11419: Holland V Stn Exit A,1.22,0.22
+BUS,Bus 106-11419: Holland V Stn Exit A,Bus 106-11409: Blk 9,0.87,0.16
+BUS,Bus 106-11409: Blk 9,Bus 106-11181: Opp Blk 43,0.52,0.09
+BUS,Bus 106-11181: Opp Blk 43,Bus 106-11191: Buona Vista Stn,0.87,0.16
+BUS,Bus 106-11191: Buona Vista Stn,Bus 106-19011: Blk 19A CP,0.87,0.16
+BUS,Bus 106-19011: Blk 19A CP,Bus 106-19021: SP SMA,0.7,0.13
+BUS,Bus 106-19021: SP SMA,Bus 106-19031: Dover Stn Exit A,0.7,0.13
+BUS,Bus 106-19031: Dover Stn Exit A,Bus 106-19041: Opp Sch Of Science & Tech,0.7,0.13
+BUS,Bus 106-19041: Opp Sch Of Science & Tech,Bus 106-17151: Blk 410,1.22,0.22
+BUS,Bus 106-17151: Blk 410,Bus 106-17161: Blk 455,0.52,0.09
+BUS,Bus 106-17161: Blk 455,Bus 106-17171: Clementi Stn Exit A,0.7,0.13
+BUS,Bus 106-17171: Clementi Stn Exit A,Bus 106-17181: Opp Blk 317,0.52,0.09
+BUS,Bus 106-17181: Opp Blk 317,Bus 106-20101: Nan Hua Pr Sch,0.52,0.09
+BUS,Bus 106-20101: Nan Hua Pr Sch,Bus 106-28011: Bef Toh Tuck Ave,1.05,0.19
+BUS,Bus 106-28011: Bef Toh Tuck Ave,Bus 106-28181: Bef Toh Tuck Lk,1.4,0.25
+BUS,Bus 106-28181: Bef Toh Tuck Lk,Bus 106-28101: Opp SMRT Ulu Pandan Depot,0.7,0.13
+BUS,Bus 106-28101: Opp SMRT Ulu Pandan Depot,Bus 106-42311: Opp Burgundy Hill,1.22,0.22
+BUS,Bus 106-42311: Opp Burgundy Hill,Bus 106-43621: Opp Parkview Apts,0.7,0.13
+BUS,Bus 106-43621: Opp Parkview Apts,Bus 106-43611: Blk 290H,0.52,0.09
+BUS,Bus 106-43611: Blk 290H,Bus 106-43181: Keming Pr Sch,0.52,0.09
+BUS,Bus 106-43181: Keming Pr Sch,Bus 106-43171: Blk 229,0.7,0.13
+BUS,Bus 106-43171: Blk 229,Bus 106-43009: Bt Batok Int,0.87,0.16
+BUS,Bus 960-46009: Woodlands Temp Int,Bus 960-46549: Blk 347,1.57,0.28
+BUS,Bus 960-46549: Blk 347,Bus 960-46539: Blk 320,0.7,0.13
+BUS,Bus 960-46539: Blk 320,Bus 960-46529: Opp Marsiling Stn,0.7,0.13
+BUS,Bus 960-46529: Opp Marsiling Stn,Bus 960-46491: Blk 402,0.52,0.09
+BUS,Bus 960-46491: Blk 402,Bus 960-46381: Opp W'lands Ind Pk D St 1,1.22,0.22
+BUS,Bus 960-46381: Opp W'lands Ind Pk D St 1,Bus 960-45139: Kranji Stn,1.22,0.22
+BUS,Bus 960-45139: Kranji Stn,Bus 960-45129: S'pore Turf Club,0.7,0.13
+BUS,Bus 960-45129: S'pore Turf Club,Bus 960-45119: Kranji War Memorial,0.7,0.13
+BUS,Bus 960-45119: Kranji War Memorial,Bus 960-45109: Bef Jln Bumbong,0.87,0.16
+BUS,Bus 960-45109: Bef Jln Bumbong,Bus 960-45099: Aft Jln Bumbong,0.87,0.16
+BUS,Bus 960-45099: Aft Jln Bumbong,Bus 960-45079: Aft Mandai Rd,0.7,0.13
+BUS,Bus 960-45079: Aft Mandai Rd,Bus 960-45069: Aft Mandai Est,0.87,0.16
+BUS,Bus 960-45069: Aft Mandai Est,Bus 960-45059: Opp Da Di Glass,0.52,0.09
+BUS,Bus 960-45059: Opp Da Di Glass,Bus 960-45049: Opp Yew Tee Ind Est Blk 1,1.05,0.19
+BUS,Bus 960-45049: Opp Yew Tee Ind Est Blk 1,Bus 960-45039: Opp Yew Tee Ind Est,0.35,0.06
+BUS,Bus 960-45039: Opp Yew Tee Ind Est,Bus 960-45029: Opp Heavy Veh Pk,0.52,0.09
+BUS,Bus 960-45029: Opp Heavy Veh Pk,Bus 960-44999: Bef Yew Tee Flyover,0.35,0.06
+BUS,Bus 960-44999: Bef Yew Tee Flyover,Bus 960-45019: Aft Yew Tee Flyover,0.7,0.13
+BUS,Bus 960-45019: Aft Yew Tee Flyover,Bus 960-44069: Aft KJE Slip Rd,0.52,0.09
+BUS,Bus 960-44069: Aft KJE Slip Rd,Bus 960-44059: Blk 632 CP,0.35,0.06
+BUS,Bus 960-44059: Blk 632 CP,Bus 960-44049: Opp Junction 10,0.87,0.16
+BUS,Bus 960-44049: Opp Junction 10,Bus 960-44251: Bt Panjang Stn/Blk 604,0.35,0.06
+BUS,Bus 960-44251: Bt Panjang Stn/Blk 604,Bus 960-44739: Blk 180,0.7,0.13
+BUS,Bus 960-44739: Blk 180,Bus 960-44201: Aft Petir Stn,0.7,0.13
+BUS,Bus 960-44201: Aft Petir Stn,Bus 960-44211: Blk 127,0.52,0.09
+BUS,Bus 960-44211: Blk 127,Bus 960-44221: Opp Pending Stn,0.52,0.09
+BUS,Bus 960-44221: Opp Pending Stn,Bus 960-44261: Blk 270,0.87,0.16
+BUS,Bus 960-44261: Blk 270,Bus 960-40239: Aft Tanglin CC,16.75,3
+BUS,Bus 960-40239: Aft Tanglin CC,Bus 960-40089: Opp Stevens Stn,0.7,0.13
+BUS,Bus 960-40089: Opp Stevens Stn,Bus 960-40079: Bef Swiss Cottage Est,0.52,0.09
+BUS,Bus 960-40079: Bef Swiss Cottage Est,Bus 960-40119: Bef Goldhill Ave,0.52,0.09
+BUS,Bus 960-40119: Bef Goldhill Ave,Bus 960-40069: Anglo-Chinese Sch,0.35,0.06
+BUS,Bus 960-40069: Anglo-Chinese Sch,Bus 960-40059: Chancery Ct,0.52,0.09
+BUS,Bus 960-40059: Chancery Ct,Bus 960-40049: Opp Newton Stn Exit C,0.7,0.13
+BUS,Bus 960-40049: Opp Newton Stn Exit C,Bus 960-40039: Opp Newton FC,0.52,0.09
+BUS,Bus 960-40039: Opp Newton FC,Bus 960-40029: Aft Makepeace Rd,0.52,0.09
+BUS,Bus 960-40029: Aft Makepeace Rd,Bus 960-40279: KK Women & Children Hosp,0.7,0.13
+BUS,Bus 960-40279: KK Women & Children Hosp,Bus 960-40019: Little India Stn,0.87,0.16
+BUS,Bus 960-40019: Little India Stn,Bus 960-07539: Opp Rochor Stn,0.7,0.13
+BUS,Bus 960-07539: Opp Rochor Stn,Bus 960-07589: Ch of Our Lady of Lourdes,0.7,0.13
+BUS,Bus 960-07589: Ch of Our Lady of Lourdes,Bus 960-01059: Bugis Stn Exit B,0.7,0.13
+BUS,Bus 960-01059: Bugis Stn Exit B,Bugis,2,0
+BUS,Bus 960-01112: Opp Bugis Junction,Bus 960-07551: Fu Lu Shou Cplx,0.52,0.09
+BUS,Bus 960-07551: Fu Lu Shou Cplx,Bus 960-07531: Rochor Stn,0.52,0.09
+BUS,Bus 960-07531: Rochor Stn,Bus 960-40011: Little India Stn Exit A,0.7,0.13
+BUS,Bus 960-40011: Little India Stn Exit A,Bus 960-40271: Opp KK Women & Child Hosp,0.87,0.16
+BUS,Bus 960-40271: Opp KK Women & Child Hosp,Bus 960-40021: Bef Winstedt Rd,0.87,0.16
+BUS,Bus 960-40021: Bef Winstedt Rd,Bus 960-40031: Newton FC,0.52,0.09
+BUS,Bus 960-40031: Newton FC,Bus 960-40041: Newton Stn Exit C,0.7,0.13
+BUS,Bus 960-40041: Newton Stn Exit C,Bus 960-40051: Balmoral Plaza,0.7,0.13
+BUS,Bus 960-40051: Balmoral Plaza,Bus 960-40111: Ferrell Residences,0.7,0.13
+BUS,Bus 960-40111: Ferrell Residences,Bus 960-40071: Leng Kwang Baptist Ch,0.7,0.13
+BUS,Bus 960-40071: Leng Kwang Baptist Ch,Bus 960-40081: Stevens Stn,0.7,0.13
+BUS,Bus 960-40081: Stevens Stn,Bus 960-40231: Raffles Town Club,0.52,0.09
+BUS,Bus 960-40231: Raffles Town Club,Bus 960-44269: Blk 223,15.88,2.84
+BUS,Bus 960-44269: Blk 223,Bus 960-44229: Bef Pending Stn,0.7,0.13
+BUS,Bus 960-44229: Bef Pending Stn,Bus 960-44219: Bet Blks 139/140,0.52,0.09
+BUS,Bus 960-44219: Bet Blks 139/140,Bus 960-44209: Opp Petir Stn,0.52,0.09
+BUS,Bus 960-44209: Opp Petir Stn,Bus 960-44731: Opp Blk 180,0.7,0.13
+BUS,Bus 960-44731: Opp Blk 180,Bus 960-44259: Blk 183,0.52,0.09
+BUS,Bus 960-44259: Blk 183,Bus 960-44041: Junction 10,0.7,0.13
+BUS,Bus 960-44041: Junction 10,Bus 960-44051: Opp Blk 632 CP,0.87,0.16
+BUS,Bus 960-44051: Opp Blk 632 CP,Bus 960-43991: Opp Blk 635A,0.35,0.06
+BUS,Bus 960-43991: Opp Blk 635A,Bus 960-44061: Bef Yew Tee Flyover,0.35,0.06
+BUS,Bus 960-44061: Bef Yew Tee Flyover,Bus 960-45011: Aft Yew Tee Flyover,0.35,0.06
+BUS,Bus 960-45011: Aft Yew Tee Flyover,Bus 960-45021: Heavy Veh Pk,0.7,0.13
+BUS,Bus 960-45021: Heavy Veh Pk,Bus 960-45031: Yew Tee Ind Est,0.7,0.13
+BUS,Bus 960-45031: Yew Tee Ind Est,Bus 960-45041: Thong Huat Bros Pte Ltd,0.87,0.16
+BUS,Bus 960-45041: Thong Huat Bros Pte Ltd,Bus 960-45051: Da Di Glass,0.52,0.09
+BUS,Bus 960-45051: Da Di Glass,Bus 960-45061: Opp Mandai Est,0.7,0.13
+BUS,Bus 960-45061: Opp Mandai Est,Bus 960-45071: Bef Mandai Rd,0.52,0.09
+BUS,Bus 960-45071: Bef Mandai Rd,Bus 960-45091: Opp Jln Bumbong,0.87,0.16
+BUS,Bus 960-45091: Opp Jln Bumbong,Bus 960-45101: Aft LP 234,0.87,0.16
+BUS,Bus 960-45101: Aft LP 234,Bus 960-45111: Opp Kranji War Memorial,0.7,0.13
+BUS,Bus 960-45111: Opp Kranji War Memorial,Bus 960-45121: Opp S'pore Turf Club,0.87,0.16
+BUS,Bus 960-45121: Opp S'pore Turf Club,Bus 960-45131: Opp Kranji Stn,0.52,0.09
+BUS,Bus 960-45131: Opp Kranji Stn,Bus 960-46389: Aft W'lands Ind Pk D St 1,1.4,0.25
+BUS,Bus 960-46389: Aft W'lands Ind Pk D St 1,Bus 960-46499: Opp Blk 402,1.22,0.22
+BUS,Bus 960-46499: Opp Blk 402,Bus 960-46521: Marsiling Stn,0.35,0.06
+BUS,Bus 960-46521: Marsiling Stn,Bus 960-46531: Blk 173,0.7,0.13
+BUS,Bus 960-46531: Blk 173,Bus 960-46541: Marsiling Mall,0.7,0.13
+BUS,Bus 960-46541: Marsiling Mall,Bus 960-46009: Woodlands Temp Int,1.22,0.22
+BUS,Bus 124-40189: Newton Stn Exit B,Bus 124-40179: Env Bldg,0.35,0.06
+BUS,Bus 124-40179: Env Bldg,Bus 124-09219: Far East Plaza,1.4,0.25
+BUS,Bus 124-09219: Far East Plaza,Bus 124-09047: Orchard Stn/Tang Plaza,0.7,0.13
+BUS,Bus 124-09047: Orchard Stn/Tang Plaza,Bus 124-09037: Opp Mandarin Orchard,0.87,0.16
+BUS,Bus 124-09037: Opp Mandarin Orchard,Bus 124-08138: Concorde Hotel S'pore,1.22,0.22
+BUS,Bus 124-08138: Concorde Hotel S'pore,Bus 124-08057: Dhoby Ghaut Stn,0.7,0.13
+BUS,Bus 124-08057: Dhoby Ghaut Stn,Bus 124-08069: Bencoolen Stn Exit B,0.87,0.16
+BUS,Bus 124-08069: Bencoolen Stn Exit B,Bus 124-04167: City Hall Stn Exit B,1.4,0.25
+BUS,Bus 124-04167: City Hall Stn Exit B,Bus 124-04249: Opp The Treasury,0.52,0.09
+BUS,Bus 124-04249: Opp The Treasury,Bus 124-05029: Boat Quay,0.7,0.13
+BUS,Bus 124-05029: Boat Quay,Bus 124-05131: Opp Hong Lim Cplx,1.05,0.19
+BUS,Bus 124-05131: Opp Hong Lim Cplx,Bus 124-05039: New Bridge Ctr,0.7,0.13
+BUS,Bus 124-05039: New Bridge Ctr,Bus 124-05019: Aft Duxton Plain Pk,0.52,0.09
+BUS,Bus 124-05019: Aft Duxton Plain Pk,Bus 124-05069: Outram Pk Stn Exit H,0.17,0.03
+BUS,Bus 124-05069: Outram Pk Stn Exit H,Outram Park,2,0.36
+BUS,Bus 124-10018: Outram Pk Stn Exit F,Bus 124-05012: Bef Pearl's Hill Terr,0.7,0.13
+BUS,Bus 124-05012: Bef Pearl's Hill Terr,Bus 124-05022: Aft Chinatown Stn Exit D,1.05,0.19
+BUS,Bus 124-05022: Aft Chinatown Stn Exit D,Bus 124-04222: Clarke Quay Stn Exit E,0.87,0.16
+BUS,Bus 124-04222: Clarke Quay Stn Exit E,Bus 124-04223: Old Hill St Police Stn,0.52,0.09
+BUS,Bus 124-04223: Old Hill St Police Stn,Bus 124-04143: Stamford Ct,0.7,0.13
+BUS,Bus 124-04143: Stamford Ct,Bus 124-04121: SMU,0.52,0.09
+BUS,Bus 124-04121: SMU,Bus 124-08041: YMCA,0.52,0.09
+BUS,Bus 124-08041: YMCA,Bus 124-08031: Dhoby Ghaut Stn Exit B,0.52,0.09
+BUS,Bus 124-08031: Dhoby Ghaut Stn Exit B,Bus 124-08111: Winsland Hse,0.87,0.16
+BUS,Bus 124-08111: Winsland Hse,Bus 124-08121: Somerset Stn,0.52,0.09
+BUS,Bus 124-08121: Somerset Stn,Bus 124-09011: Opp Ngee Ann City,1.22,0.22
+BUS,Bus 124-09011: Opp Ngee Ann City,Bus 124-09023: Opp Orchard Stn/Ion,0.52,0.09
+BUS,Bus 124-09023: Opp Orchard Stn/Ion,Bus 124-09212: Royal Plaza On Scotts,1.05,0.19
+BUS,Bus 124-09212: Royal Plaza On Scotts,Bus 124-40171: Opp Env Bldg,1.05,0.19
+BUS,Bus 124-40171: Opp Env Bldg,Bus 124-40181: Newton Stn Exit A,0.52,0.09
+BUS,Bus 124-40181: Newton Stn Exit A,Newton,2,0.36
+WALK,Bukit Batok,Bus 106-43009: Bt Batok Int,2,0
+WALK,Bus 106-17179: Clementi Station Exit B,Clementi,2,0
+WALK,Bus 106-19039: Dover Stn Exit B,Dover,2,0
+WALK,Bus 106-09048: Orchard Stn/Lucky Plaza,Orchard,2,0
+WALK,Bus 106-09038: Opp Somerset Stn,Somerset,2,0
+WALK,Bus 106-08057: Dhoby Ghaut Stn,Dhoby Ghaut,2,0
+WALK,Bus 106-03539: Marina Bay Stn,Marina Bay,2,0.1
+WALK,Bus 106-03239: Shenton Way Ter,Tanjong Pagar,2,0
+WALK,Bus 106-03391: Marina Bay Financial Ctr,Marina Bay,2,0.1
+WALK,Bus 106-08031: Dhoby Ghaut Stn Exit B,Dhoby Ghaut,2,0
+WALK,Bus 106-08121: Somerset Stn,Somerset,2,0
+WALK,Bus 106-09022: Bef Orchard Stn Exit B,Orchard,2,0
+WALK,Bus 106-11191: Buona Vista Stn,Buona Vista,2,0
+WALK,Bus 106-19031: Dover Stn Exit A,Dover,2,0
+WALK,Bus 106-17171: Clementi Stn Exit A,Clementi,2,0
+WALK,Woodlands,Bus 960-46009: Woodlands Temp Int,2,0
+WALK,Bus 960-46529: Opp Marsiling Stn,Marsiling,2,0
+WALK,Bus 960-45139: Kranji Stn,Kranji,2,0
+WALK,Bus 960-45049: Opp Yew Tee Ind Est Blk 1,Yew Tee,2,0
+WALK,Bus 960-40049: Opp Newton Stn Exit C,Newton,2,0
+WALK,Bugis,Bus 960-01059: Bugis Stn Exit B,2,0
+WALK,Bugis,Bus 960-01112: Opp Bugis Junction,2,0
+WALK,Bus 960-40041: Newton Stn Exit C,Newton,2,0
+WALK,Bus 960-45031: Yew Tee Ind Est,Yew Tee,2,0
+WALK,Bus 960-45131: Opp Kranji Stn,Kranji,2,0
+WALK,Bus 960-46521: Marsiling Stn,Marsiling,2,0
+WALK,Newton,Bus 124-40189: Newton Stn Exit B,2,0
+WALK,Bus 124-09047: Orchard Stn/Tang Plaza,Orchard,2,0
+WALK,Bus 124-08057: Dhoby Ghaut Stn,Dhoby Ghaut,2,0
+WALK,Bus 124-04167: City Hall Stn Exit B,City Hall,2,0
+WALK,Outram Park,Bus 124-10018: Outram Pk Stn Exit F,2,0
+WALK,Bus 124-04143: Stamford Ct,City Hall,2,0
+WALK,Bus 124-08031: Dhoby Ghaut Stn Exit B,Dhoby Ghaut,2,0
+WALK,Bus 124-08121: Somerset Stn,Somerset,2,0
+WALK,Bus 124-09023: Opp Orchard Stn/Ion,Orchard,2,0

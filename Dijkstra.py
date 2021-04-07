@@ -93,24 +93,25 @@ class Dijkstra_node:
         self.time = time
         self.cost = cost
 
-    def edge(self):
-        return self.edge.src()
+        def edge(self):
+            return self.edge.src()
 
-    def marked(self):
-        return self.marked.src()
+        def marked(self):
+            return self.marked.src()
 
-    def dist(self):
-        return self.src()
+        def dist(self):
+            return self.src()
 
-    def dist(self):
-        return self.cost()
+        def dist(self):
+            return self.cost()
 
 
 if __name__ == '__main__':
     tag = "BUS"
-    graph = Graph("graph.csv",tag)
-    s = "Bukit Batok"
-    d = "Orchard"
+    congest = ""
+    graph = Graph("graph.csv",tag,congest)
+    s = "Clementi"
+    d = "Buona Vista"
     temp = Dijkstra(graph, s)
     path = temp.find_path(d)
     print(path)
