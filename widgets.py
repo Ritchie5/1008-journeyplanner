@@ -188,16 +188,14 @@ class newTable:
         self.table.horizontalHeader().setDefaultSectionSize(250)
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Fixed)
 
-    def addData(self, data, col):
+    def addData(self, data, col, headerText):
         rowCount = 0
         colCount = col
+        header = [headerText]
+        self.table.insertColumn(colCount)
+        self.table.setHorizontalHeaderLabels(header)
         for x in data:
-            self.table.setItem(rowCount, colCount, QTableWidgetItem(str(x)))
+            self.table.insertRow(rowCount)
+            self.table.setItem(rowCount, colCount, QTableWidgetItem(x))
             self.table.item(rowCount, colCount).setTextAlignment(Qt.AlignCenter)
             rowCount += 1
-    
-    def addRow(self, numRow):
-        self.table.setRowCount(numRow)
-    
-    def addCol(self, numCol):
-        self.table.setColumnCount(numCol)
