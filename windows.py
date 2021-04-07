@@ -39,12 +39,16 @@ class window:
     __radioX = (__comboX + __comboWidth) + 20
     __radioY = __comboY
 
-    tag = "MRT"
+    tag = "MRTBUS"
 
     #Button functions
     def dijkClicked(self):
         startLoc = self.startCombo.combo.currentText()
         destLoc = self.destCombo.combo.currentText()
+        if self.mrtRadio.radio.isChecked():
+            self.tag = "MRT"
+        if self.busRadio.radio.isChecked():
+            self.tag = "BUS"
         if startLoc and destLoc in self.locations:
             # Dijkstra
             temp = Dijkstra(self.graph, startLoc)
@@ -132,7 +136,7 @@ class window:
         self.btLinkButton = newPushButton(self.backTrackPage.page, self.__buttonX-107, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
         self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-400, self.__tableY, self.__tableWidth+500, self.__tableHeight)
         self.backTrackTableShort = newTable(self.backTrackPage.page, self.__tableX+380, self.__tableY, self.__tableWidth, self.__tableHeight)
-        self.allPathImage = newLabel(self.backTrackPage.page, 0, 0, self.__labelWidth, self.__labelHeight, "", "allPath.png")
+        self.allPathImage = newLabel(self.backTrackPage.page, self.__labelX-175, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "allPath.png")
         self.stackWidget.addPage(self.backTrackPage.page)
 
     def getLocation(self, file):
