@@ -59,7 +59,8 @@ class Backtracking:
 
 
 if __name__ == '__main__':
-    graph = Graph("graph.csv")
+    tag = "MRTBUS"
+    graph = Graph("graph.csv",tag)
     back_tracker = Backtracking
     paths = back_tracker.find_shortest_path(Backtracking, graph.adjList, "Simei", "Bedok", 0, 0.0)
     print(paths)
