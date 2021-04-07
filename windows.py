@@ -40,9 +40,11 @@ class window:
         destLoc = self.destCombo.combo.currentText()
         if startLoc and destLoc in self.locations:
             # Dijkstra
-            temp_Dij = Dijkstra(self.graph, startLoc)
-            self.dijkResult = temp_Dij.find_path(destLoc)
-            self.dijkTable.addData(self.dijkResult[0], 0, "Directions")
+            temp = Dijkstra(self.graph, startLoc)
+            dijkPath = temp.find_path(destLoc)
+            self.dijkTable.addRow(len(dijkPath[2:]))
+            self.dijkTable.addCol(1)
+            self.dijkTable.addData(dijkPath[2:], 0)
             self.stackWidget.setCurrentPage(self.dijkPage)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
@@ -52,22 +54,27 @@ class window:
         destLoc = self.destCombo.combo.currentText()
         if startLoc and destLoc in self.locations:
                 back_tracker = Backtracking()
-                path = back_tracker.find_path(self.graph.adjList, startLoc, destLoc)
-                self.backTrackTable.addData(path, 0, "Normal Path")
 
                 # BackTracking: Finding all path Algo
-                pathAll = back_tracker.find_all_path(self.graph.adjList, startLoc, destLoc)
-                i = 0
-                j = 0
-                k = len(pathAll) - 1
-                while i <= k:
-                    self.backTrackTableAll.addData(pathAll[i], j, "All Path")
+                pathAll = back_tracker.find_all_path(self.graph.adjList, startLoc, destLoc, 0, 0)
+                i = j = k = rowCount = 0
+                while k <= (len(pathAll)-1):
+                    if rowCount < len(pathAll[k][2:]):
+                        rowCount = len(pathAll[k][2:])
+                    k += 1
+
+                self.backTrackTableAll.addRow(rowCount)
+                self.backTrackTableAll.addCol(len(pathAll))
+                while i <= (len(pathAll) - 1):
+                    self.backTrackTableAll.addData(pathAll[i][2:], j)
                     i += 1
                     j += 1
 
                 # BackTracking: Finding shortest path Algo
-                pathShort = back_tracker.get_shortest_path(self.graph.adjList, startLoc, destLoc)
-                self.backTrackTableShort.addData(pathShort, 0, "Shorest Path")
+                pathShort = back_tracker.find_shortest_path(self.graph.adjList, startLoc, destLoc, 0, 0)
+                self.backTrackTableShort.addRow(len(pathShort[0][2:]))
+                self.backTrackTableShort.addCol(len(pathShort))
+                self.backTrackTableShort.addData(pathShort[0][2:], 0)
                 self.stackWidget.setCurrentPage(self.backTrackPage)
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
@@ -113,9 +120,8 @@ class window:
     def backTrackWin(self):
         self.backTrackPage = newWidgetPage()
         self.backButton = newPushButton(self.backTrackPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
-        self.backTrackTable = newTable(self.backTrackPage.page, self.__tableX-400, self.__tableY, self.__tableWidth, self.__tableHeight)
-        self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-100, self.__tableY, self.__tableWidth+200, self.__tableHeight)
-        self.backTrackTableShort = newTable(self.backTrackPage.page, self.__tableX+400, self.__tableY, self.__tableWidth, self.__tableHeight)
+        self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-400, self.__tableY, self.__tableWidth+500, self.__tableHeight)
+        self.backTrackTableShort = newTable(self.backTrackPage.page, self.__tableX+380, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.stackWidget.addPage(self.backTrackPage.page)
 
     def getLocation(self, file):
