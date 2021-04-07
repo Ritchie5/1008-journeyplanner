@@ -19,6 +19,8 @@ class window:
     __labelHeight = 40
     __comboWidth = 400
     __comboHeight = 40
+    __tableWidth = 250
+    __tableHeight = 500
 
     #Widget Coordinates
     __logoX = (__winWidth - __comboWidth) / 2
@@ -29,6 +31,49 @@ class window:
     __labelY = __comboY
     __buttonX = __comboX
     __buttonY = __comboY + 100
+    __tableX = (__winWidth - __tableWidth) / 2
+    __tableY = 100
+
+    #Button functions
+    def dijkClicked(self):
+        startLoc = self.startCombo.combo.currentText()
+        destLoc = self.destCombo.combo.currentText()
+        if startLoc and destLoc in self.locations:
+            # Dijkstra
+            temp_Dij = Dijkstra(self.graph, startLoc)
+            self.dijkResult = temp_Dij.find_path(destLoc)
+            self.dijkTable.addData(self.dijkResult[0], 0, "Directions")
+            self.stackWidget.setCurrentPage(self.dijkPage)
+        else:
+            msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
+
+    def backtrackClicked(self):
+        startLoc = self.startCombo.combo.currentText()
+        destLoc = self.destCombo.combo.currentText()
+        if startLoc and destLoc in self.locations:
+                back_tracker = Backtracking()
+                path = back_tracker.find_path(self.graph.adjList, startLoc, destLoc)
+                self.backTrackTable.addData(path, 0, "Normal Path")
+
+                # BackTracking: Finding all path Algo
+                pathAll = back_tracker.find_all_path(self.graph.adjList, startLoc, destLoc)
+                i = 0
+                j = 0
+                k = len(pathAll) - 1
+                while i <= k:
+                    self.backTrackTableAll.addData(pathAll[i], j, "All Path")
+                    i += 1
+                    j += 1
+
+                # BackTracking: Finding shortest path Algo
+                pathShort = back_tracker.get_shortest_path(self.graph.adjList, startLoc, destLoc)
+                self.backTrackTableShort.addData(pathShort, 0, "Shorest Path")
+                self.stackWidget.setCurrentPage(self.backTrackPage)
+        else:
+            msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
+
+    def backClicked(self):
+        self.stackWidget.setCurrentPage(self.mainPage)
 
     #Call function to setup UI
     def setupUI(self, window):
@@ -62,48 +107,16 @@ class window:
     def dijkWin(self):
         self.dijkPage = newWidgetPage()
         self.backButton = newPushButton(self.dijkPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.dijkTable = newTable(self.dijkPage.page, self.__tableWidth+165, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.stackWidget.addPage(self.dijkPage.page)
 
     def backTrackWin(self):
         self.backTrackPage = newWidgetPage()
         self.backButton = newPushButton(self.backTrackPage.page, self.__buttonX+125, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
+        self.backTrackTable = newTable(self.backTrackPage.page, self.__tableX-400, self.__tableY, self.__tableWidth, self.__tableHeight)
+        self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-100, self.__tableY, self.__tableWidth+200, self.__tableHeight)
+        self.backTrackTableShort = newTable(self.backTrackPage.page, self.__tableX+400, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.stackWidget.addPage(self.backTrackPage.page)
-
-    def dijkClicked(self):
-        startLoc = self.startCombo.combo.currentText()
-        destLoc = self.destCombo.combo.currentText()
-        if startLoc and destLoc in self.locations:
-            # Dijkstra
-            temp_Dij = Dijkstra(self.graph, startLoc)
-            temp_Dij.find_path(destLoc)
-            self.stackWidget.setCurrentPage(self.dijkPage)
-        else:
-            msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
-
-    def backtrackClicked(self):
-        startLoc = self.startCombo.combo.currentText()
-        destLoc = self.destCombo.combo.currentText()
-        if startLoc and destLoc in self.locations:
-                back_tracker = Backtracking()
-                path = back_tracker.find_path(self.graph.adjList, startLoc, destLoc)
-                print("Path 1")
-                print(path)
-
-                # BackTracking: Finding all path Algo
-                path1 = back_tracker.find_all_path(self.graph.adjList, startLoc, destLoc)
-                print("All Path")
-                print(path1)
-
-                # BackTracking: Finding shortest path Algo
-                path2 = back_tracker.get_shortest_path(self.graph.adjList, startLoc, destLoc)
-                print("Shortest Path")
-                print(path2)
-                self.stackWidget.setCurrentPage(self.backTrackPage)
-        else:
-            msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
-
-    def backClicked(self):
-        self.stackWidget.setCurrentPage(self.mainPage)
 
     def getLocation(self, file):
         filename = open("graph.csv", "r")

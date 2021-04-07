@@ -59,8 +59,7 @@ class Dijkstra:
                 dest = temp
 
         path.reverse()
-        print(path)
-        print("Time take:",time)
+        return(path, time)
 
 
 class Dijkstra_node:

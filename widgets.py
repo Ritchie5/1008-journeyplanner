@@ -119,6 +119,7 @@ class newPushButton:
         #Set font style and font size of text
         self.pushButton.setFont(QFont(fontStyle,int(fontSize)))
 
+#Class to create new combobox object
 class newComboBox:
     def __init__(self, page, x, y, width, height, fontStyle="", fontSize=""):
         #Initialize new instance of ComboBox UI
@@ -159,7 +160,7 @@ class newComboBox:
         #Set font style and font size of text
         self.combo.setFont(QFont(fontStyle,int(fontSize)))
 
-# Class to create new messagebox object
+#Class to create new messagebox object
 class newMessageBox:
     def __init__(self, winTitle, text, winIcon="" , msgIcon="Critical"):
         #Initialized a new instance of message box UI
@@ -177,3 +178,24 @@ class newMessageBox:
         """
         msgBox = self.msgBox
         msgBox.exec_()
+
+#Class to create new table object
+class newTable:
+    def __init__(self, page, x, y, width, height):
+        self.table = QTableWidget(page)
+        self.table.setGeometry(x, y, width, height)
+        self.table.verticalHeader().setDefaultSectionSize(20)
+        self.table.horizontalHeader().setDefaultSectionSize(250)
+        self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Fixed)
+
+    def addData(self, data, col, headerText):
+        rowCount = 0
+        colCount = col
+        header = [headerText]
+        self.table.insertColumn(colCount)
+        self.table.setHorizontalHeaderLabels(header)
+        for x in data:
+            self.table.insertRow(rowCount)
+            self.table.setItem(rowCount, colCount, QTableWidgetItem(x))
+            self.table.item(rowCount, colCount).setTextAlignment(Qt.AlignCenter)
+            rowCount += 1
