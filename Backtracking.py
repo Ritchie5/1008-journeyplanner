@@ -17,7 +17,7 @@ class Backtracking:
 
         # Find all possible paths
     def find_all_path(self, graph1, start, end, time, cost, path=[]):
-        paths = back_tracker.find_all_path1(Backtracking, graph1, start, end, time, cost)
+        paths = back_tracker.find_all_path1(back_tracker, graph.adjList, start, end, 0, 0.0)
         # Format paths
         arr = [[0, 0] for j in range(len(paths))]
         for x in range(0, len(paths)):
