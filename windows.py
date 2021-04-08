@@ -40,7 +40,6 @@ class window:
     __radioY = __comboY + 130
 
     tag = "MRTBUS"
-    tag2 = None
 
     #Button functions
     def dijkClicked(self):
