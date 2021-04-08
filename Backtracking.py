@@ -5,7 +5,6 @@ class Backtracking:
     # Find shortest path based on time
     def find_shortest_path(self, graph1, start, end, time, cost):
         paths = self.find_shortest_path1(graph1, start, end, time, cost)
-        print(paths)
         # Format array
         arr = [0, 0]
         arr[0] = paths[0]
@@ -17,7 +16,6 @@ class Backtracking:
 
     # Find Shortest possible path recursively
     def find_shortest_path1(self, graph, start, end, time, cost, shortestLength = 0, path=[0, 0]):
-        print("called")
         path = path + [start, time, cost]
         path[0] = 0
         path[1] = 0
