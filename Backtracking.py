@@ -16,7 +16,7 @@ class Backtracking:
         return arr
 
     # Find Shortest possible path recursively
-    def find_shortest_path1(self, graph1, start, end, time, cost, path=[]):
+    def find_shortest_path1(self, graph1, start, end, time, cost, path=[0.0, 0.0]):
         path = path + [start, time, cost]
         path[0] = 0
         path[1] = 0
