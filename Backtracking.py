@@ -16,7 +16,6 @@ class Backtracking:
         return arr
 
     # Find Shortest possible path recursively
-    # Greedy Algorithm
     def find_shortest_path1(self, graph1, start, end, time, cost, path=[0.0, 0.0]):
         path = path + [start, time, cost]
         path[0] = 0
@@ -30,6 +29,7 @@ class Backtracking:
         # Went out of Graph
         if start not in graph1:
             pass
+        shortest = None  # Array to contain all paths
 
         # Check all edges of graph
         for node in graph1[start]:
@@ -38,11 +38,11 @@ class Backtracking:
                 time = node.time
                 cost = node.cost
                 if shortest is None or path[0] < shortest[0][0]:
-                    new_path = self.find_shortest_path1(graph1, node.destination, end, time, cost, shortest, path)
+                    new_path = self.find_shortest_path1(graph1, node.destination, end, time, cost, path)
                     if new_path is not None:
-                        if shortest is None or new_path[0][0] < shortest[0][0]:
-                            shortest = new_path
                         # append all new paths to all_path array
+                        shortest = new_path
+                        return shortest
             elif node.destination in path:
                 pass
 
@@ -50,8 +50,8 @@ class Backtracking:
         return shortest
 
 
-if __name__ == '__main__':
-    tag = "MRTBUS"
-    graph = Graph("graph.csv", tag, "")
-    back_tracker = Backtracking
-    paths = back_tracker.find_shortest_path(graph.adjList, "Simei", "Bedok", 0, 0.0)
+# if __name__ == '__main__':
+#     tag = "MRTBUS"
+#     graph = Graph("graph.csv",tag, "")
+#     back_tracker = Backtracking
+#     paths = back_tracker.find_shortest_path(graph.adjList, "Simei", "Bedok", 0, 0.0)
