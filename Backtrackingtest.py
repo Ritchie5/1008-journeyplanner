@@ -4,40 +4,33 @@ from graph import Graph
 class Backtracking:
     # Find shortest path based on time
     def find_shortest_path(self, graph1, start, end, time, cost):
-        paths = self.find_all_path(Backtracking, graph1, start, end, time, cost)
+        paths = self.find_shortest_path1(Backtracking, graph1, start, end, time, cost)
+        print(paths)
+        # Format array
+        arr = [0, 0]
+        arr[0] = paths[0][0]
+        arr[1] = paths[0][1]
 
-        shortest_time = paths[0][0]
-        shortest_path = 0
-        for x in range(1, len(paths)):
-            if shortest_time > paths[x][0]:
-                shortest_time = paths[x][0]
-                shortest_path = x
-
-        return paths[shortest_path]
-
-        # Find all possible paths
-    def find_all_path(self, graph1, start, end, time, cost):
-        paths = self.find_all_path1(Backtracking, graph1, start, end, time, cost)
-        # Format paths
-        arr = [[0, 0] for j in range(len(paths))]
-        for x in range(0, len(paths)):
-            for y in range(0, len(paths[x]), 3):
-                arr[x].append(paths[x][y])
-                arr[x][0] += float(paths[x][y + 1])
-                arr[x][1] += float(paths[x][y + 2])
+        for x in range(2, len(paths[0]), 3):
+            arr.append(paths[0][x])
 
         return arr
 
     # Find all possible paths
-    def find_all_path1(self, graph1, start, end, time, cost, path=[]):
+    def find_shortest_path1(self, graph1, start, end, time, cost, path=[0.0, 0.0]):
         path = path + [start, time, cost]
+        path[0] = 0
+        path[1] = 0
+        for x in range(2, len(path), 3):
+            path[0] += float(path[x + 1])
+            path[1] += float(path[x + 2])
         # Reached destination
         if start == end:
             return [path]
         # Went out of Graph
         if start not in graph1:
             pass
-        all_paths = []              # Array to contain all paths
+        shortest = None  # Array to contain all paths
 
         # Check all edges of graph
         for node in graph1[start]:
@@ -45,20 +38,57 @@ class Backtracking:
             if node.destination not in path:
                 time = node.time
                 cost = node.cost
-                new_path = self.find_all_path1(Backtracking, graph1, node.destination, end, time, cost, path)
-                if new_path is not None:
-                    # append all new paths to all_path array
-                    for new_path in new_path:
-                        all_paths.append(new_path)
+                if shortest is None or path[0] < shortest[0][0]:
+                    new_path = self.find_shortest_path1(Backtracking, graph1, node.destination, end, time, cost, path)
+                    if new_path is not None:
+                        # append all new paths to all_path array
+                        shortest = new_path
+                        return shortest
+            elif node.destination in path:
+                pass
+
+        # Return all paths
+        return shortest
+
+    def find_all_path2(self, graph1, start, end, time, cost, path=[0.0, 0.0]):
+        path = path + [start, time, cost]
+        path[0] = 0
+        path[1] = 0
+        for x in range(2, len(path), 3):
+            path[0] += float(path[x + 1])
+            path[1] += float(path[x + 2])
+        # Reached destination
+        if start == end:
+            return [path]
+        # Went out of Graph
+        if start not in graph1:
+            return []
+        shortest = []  # Array to contain all paths
+
+        # Check all edges of graph
+        for node in graph1[start]:
+            # If the destination not already in path, find path
+            if node.destination not in path:
+                time = node.time
+                cost = node.cost
+                if not shortest or len(path) < 1000:
+                    new_path = self.find_all_path2(Backtracking, graph1, node.destination, end, time, cost, path)
+                    if new_path:
+                        # append all new paths to all_path array
+                        for new_path in new_path:
+                            shortest.append(new_path)
+                            return shortest
             elif node.destination in path:
                 pass
         # Return all paths
-        return all_paths
+        return shortest
 
 
 if __name__ == '__main__':
     tag = "MRTBUS"
-    graph = Graph("graph.csv", tag)
+    congest = ""
+    graph = Graph("graph.csv", tag, congest)
+    graph.print_list()
     back_tracker = Backtracking
-    paths = back_tracker.find_shortest_path(Backtracking, graph.adjList, "Simei", "Bedok", 0, 0.0)
+    paths = back_tracker.find_shortest_path(Backtracking, graph.adjList, "Woodlands", "Bugis", 0, 0.0)
     print(paths)
