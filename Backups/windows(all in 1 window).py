@@ -3,7 +3,7 @@ import webbrowser
 from widgets import *
 from Backtracking import Backtracking
 from Dijkstra import Dijkstra
-from graph import Graph, mrtList
+from graph import Graph
 from AStar import AStarMap
 
 class window:
@@ -41,52 +41,43 @@ class window:
     __radioY = __comboY + 130
 
     tag = "MRTBUS"
-    btCost = ""
 
     #Button functions
-    def nextFunction(self):
+    def searchClicked(self):
+        startLoc = self.startCombo.combo.currentText()
+        destLoc = self.destCombo.combo.currentText()
         if self.mrtRadio.radio.isChecked():
             self.tag = "MRT"
         if self.busRadio.radio.isChecked():
             self.tag = "BUS"
         if self.mrtBusRadio.radio.isChecked():
             self.tag = "MRTBUS"
-        conjested = self.conjestCombo.combo.currentText()
-        self.graph1 = Graph("graph.csv",self.tag, conjested)
-        self.mainWin()
-        self.stackWidget.setCurrentPage(self.mainPage)
-
-    def searchClicked(self):
-        startLoc = self.startCombo.combo.currentText()
-        destLoc = self.destCombo.combo.currentText()
+        print(self.tag)
+        self.graph = Graph("graph.csv",self.tag,"")
         if startLoc and destLoc in self.locations:
             #Dijkstra
-            temp = Dijkstra(self.graph1, startLoc)
+            temp = Dijkstra(self.graph, startLoc)
             dijkPath = temp.find_path(destLoc)
-            self.dijkCost = "Time taken: ", round(float(dijkPath[0]), 2), "Total Cost: ", round(float(dijkPath[1]), 2)
-            self.dijkCostLabel = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.dijkCost))
             self.dijkTable.addRow(len(dijkPath[2:]))
             self.dijkTable.addCol(1)
             self.dijkTable.addData(dijkPath[2:], 0)
 
             #Backtracking
             back_tracker = Backtracking()
-            pathShort = back_tracker.find_shortest_path(self.graph1.adjList, startLoc, destLoc, 0, 0)
-            self.btCost = "Time taken: ", round(float(pathShort[0]), 2), "Total Cost: ", round(float(pathShort[1]), 2)
-            self.backTrackingLabel = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.btCost))
+            pathShort = back_tracker.find_shortest_path(self.graph.adjList, startLoc, destLoc, 0, 0)
             self.backTrackTable.addRow(len(pathShort[2:]))
             self.backTrackTable.addCol(1)
             self.backTrackTable.addData(pathShort[2:], 0)
+            self.stackWidget.setCurrentPage(self.resultPage)
 
             #Astar
-            astar = AStarMap(self.graph1, startLoc)
+            astar = AStarMap(self.graph, startLoc)
             timePath = astar.FindPath(destLoc, True)
-            self.astarCost = "Time taken: ", round(float(timePath[0]), 2), "Total Cost: ", round(float(timePath[1]), 2)
-            self.astarCostLabel = newLabel(self.resultPage.page, self.__labelX+545, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.astarCost))
-            self.aStarTable.addRow(len(timePath[2:]))
-            self.aStarTable.addCol(1)
-            self.aStarTable.addData(timePath[2:], 0)
-            self.stackWidget.setCurrentPage(self.resultPage)
+            print("Astar Path")
+            print (timePath)
+            # self.aStarTable.addRow(len(timePath[2:]))
+            # self.aStarTable.addCol(1)
+            # self.aStarTable.addData(timePath[2:], 0)
 
         else:
             msgBox = newMessageBox("Error!", "Invalid input! Please check again!", "winIcon.PNG")
@@ -100,22 +91,30 @@ class window:
         self.cenWidget = QtWidgets.QWidget(window.win)
         window.win.setCentralWidget(self.cenWidget)
         self.stackWidget = newStackWidget(self.cenWidget, 0, 0, self.__winWidth, self.__winHeight)
-        self.firstWin()
+        self.mainWin()
         self.resultWin()
-        self.stackWidget.setCurrentPage(self.firstPage)
+        self.stackWidget.setCurrentPage(self.mainPage)
 
     #Call function to setup main window
     def mainWin(self):
         self.mainPage = newWidgetPage()
-        self.locations = self.graph1.adjList
+        self.locations = self.getLocation("graph.csv", "MRTBUS")
         self.mainlogo = newLabel(self.mainPage.page, self.__logoX, self.__logoY, self.__logoWidth, self.__logoHeight, "", "mainLogo.PNG")
         self.startCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 12)
         self.startCombo.combo.addItems(self.locations)
         self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight, "Ariel", 12)
         self.destCombo.combo.addItems(self.locations)
+        self.locations2 = self.filterBus(self.locations)
+        self.conjestCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+100, self.__comboWidth, self.__comboHeight, "Ariel", 12)
+        self.conjestCombo.combo.addItems(self.locations2)
         self.startLabel = newLabel(self.mainPage.page, self.__labelX, self.__labelY, self.__labelWidth, self.__labelHeight, "Select Starting Point:", "", "Ariel", 12)
         self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
-        self.searchButton = newPushButton(self.mainPage.page, self.__buttonX+125, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.searchClicked, "Search", "Ariel", 12)
+        self.conjestLabel = newLabel(self.mainPage.page, self.__labelX+34, self.__labelY+100, self.__labelWidth, self.__labelHeight, "Conjested MRT:", "", "Ariel", 12)
+        self.searchButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY+100, self.__buttonWidth, self.__buttonHeight, self.searchClicked, "Search", "Ariel", 12)
+        self.mrtBusRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
+        self.mrtRadio = newRadioButton(self.mainPage.page, self.__radioX+110, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
+        self.busRadio = newRadioButton(self.mainPage.page, self.__radioX+210, self.__radioY, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
+        self.mrtBusRadio.radio.setChecked(True)
         self.stackWidget.addPage(self.mainPage.page)
 
     def resultWin(self):
@@ -125,24 +124,9 @@ class window:
         self.backTrackTable = newTable(self.resultPage.page, self.__tableX-340, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.backButton = newPushButton(self.resultPage.page, self.__buttonX+358, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
         self.btLinkButton = newPushButton(self.resultPage.page, self.__buttonX-107, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
-        self.backTrackingImage = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "backTracking.png")
-        self.dijkPathImage = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "dijkPath.png")
-        self.aStarPathImage = newLabel(self.resultPage.page, self.__labelX+545, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "astarDirection.png")
+        self.shortestPathImage = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-195, self.__labelWidth+50, self.__labelHeight-5, "", "shortestPath.png")
+        self.dijkPathImage = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-200, self.__labelWidth+100, self.__labelHeight, "", "dijkPath.png")
         self.stackWidget.addPage(self.resultPage.page)
-
-    def firstWin(self):
-        self.firstPage = newWidgetPage()
-        self.firstWinLogo = newLabel(self.firstPage.page, self.__logoX, self.__logoY, self.__logoWidth, self.__logoHeight, "", "mainLogo.PNG")
-        self.mrtBusRadio = newRadioButton(self.firstPage.page, self.__radioX, self.__radioY-90, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
-        self.mrtRadio = newRadioButton(self.firstPage.page, self.__radioX+110, self.__radioY-90, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
-        self.busRadio = newRadioButton(self.firstPage.page, self.__radioX+210, self.__radioY-90, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
-        self.mrtBusRadio.radio.setChecked(True)
-        self.conjestLabel = newLabel(self.firstPage.page, self.__labelX+34, self.__labelY, self.__labelWidth, self.__labelHeight, "Conjested MRT:", "", "Ariel", 12)
-        self.locations2 = mrtList("graph.csv")
-        self.conjestCombo = newComboBox(self.firstPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 12)
-        self.conjestCombo.combo.addItems(self.locations2.dropdown)
-        self.nextButton = newPushButton(self.firstPage.page, self.__buttonX+125, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.nextFunction, "Next", "Ariel", 12)
-        self.stackWidget.addPage(self.firstPage.page)
 
     def getLocation(self, file, tag):
         # filename = open("graph.csv", "r")
@@ -156,9 +140,8 @@ class window:
         #     if x not in locArr:
         #         locArr.append(x)
         # return locArr
-        # g = Graph("graph.csv", tag,"")
-        # return g.adjList
-        pass
+        g = Graph("graph.csv", tag,"")
+        return g.adjList
 
     def filterBus(self, locations):
         temp = [x for x in locations if "Bus" in x]

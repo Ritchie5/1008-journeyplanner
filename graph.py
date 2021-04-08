@@ -1,5 +1,15 @@
 import csv
 
+class mrtList:
+    dropdown = []
+    def __init__(self, file):
+        with open(file) as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            for row in csv_reader:
+                mode = row[0]
+                v1 = row[1]
+                if mode == "MRT":
+                    self.dropdown.append(v1)
 
 class Graph:
     adjList = {}
@@ -16,7 +26,7 @@ class Graph:
                 cost = row[4]   # cost  cost from source to destination
 
                 if v1 == congest:
-                    time +=15
+                    time +=50
                 
                 if mode in tag or mode == 'WALK':
                     e = Edge(v1, v2, time, cost, mode)    # e edge from source to destination
@@ -106,4 +116,5 @@ class Edge:
 
     def to_string(self):
         return "[" + str(self.source) + "-" + str(self.destination) + "," + str(self.time) + "," + str(self.cost) + "] "
+
 

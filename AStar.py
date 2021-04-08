@@ -107,7 +107,10 @@ class AStarMap:
 
     def __init__(self, edgeGraph, source):
         self.source = source
-
+        self.stationList = {}
+        self.openList = []
+        self.closedList = []
+        
         for allEdgeKey in edgeGraph.adjList:
             for edge in edgeGraph.adjList[allEdgeKey]:
                 if not self.stationList.__contains__(edge.source):
