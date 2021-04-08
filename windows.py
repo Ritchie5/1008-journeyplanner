@@ -20,7 +20,7 @@ class window:
     __labelHeight = 40
     __comboWidth = 400
     __comboHeight = 40
-    __tableWidth = 250
+    __tableWidth = 290
     __tableHeight = 500
     __radioWidth = 150
     __radioHeight = 40
@@ -37,11 +37,9 @@ class window:
     __tableX = (__winWidth - __tableWidth) / 2
     __tableY = 100
     __radioX = (__comboX + __comboWidth) + 20
-    __radioY = __comboY
+    __radioY = __comboY - 50
 
     tag = "MRTBUS"
-
-    tag = "MRT"
 
     #Button functions
     def dijkClicked(self):
@@ -51,6 +49,9 @@ class window:
             self.tag = "MRT"
         if self.busRadio.radio.isChecked():
             self.tag = "BUS"
+        if self.mrtBusRadio.radio.isChecked():
+            self.tag = "MRTBUS"
+        self.graph = Graph("graph.csv",self.tag,"")
         if startLoc and destLoc in self.locations:
             # Dijkstra
             temp = Dijkstra(self.graph, startLoc)
@@ -65,6 +66,13 @@ class window:
     def backtrackClicked(self):
         startLoc = self.startCombo.combo.currentText()
         destLoc = self.destCombo.combo.currentText()
+        if self.mrtRadio.radio.isChecked():
+            self.tag = "MRT"
+        if self.busRadio.radio.isChecked():
+            self.tag = "BUS"
+        if self.mrtBusRadio.radio.isChecked():
+            self.tag = "MRTBUS"
+        self.graph = Graph("graph.csv",self.tag,"")
         if startLoc and destLoc in self.locations:
                 back_tracker = Backtracking()
                 # BackTracking: Finding all path Algo
@@ -100,9 +108,6 @@ class window:
         self.cenWidget = QtWidgets.QWidget(window.win)
         window.win.setCentralWidget(self.cenWidget)
         self.stackWidget = newStackWidget(self.cenWidget, 0, 0, self.__winWidth, self.__winHeight)
-
-        self.graph = Graph("graph.csv",self.tag,"")
-
         self.mainWin()
         self.dijkWin()
         self.backTrackWin()
@@ -123,22 +128,24 @@ class window:
         self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
         self.mrtRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
         self.busRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY+50, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
+        self.mrtBusRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY+100, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
+        self.mrtBusRadio.radio.setChecked(True)
         self.stackWidget.addPage(self.mainPage.page)
 
     def dijkWin(self):
         self.dijkPage = newWidgetPage()
         self.backButton = newPushButton(self.dijkPage.page, self.__buttonX+250, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
         self.dijkLinkButton = newPushButton(self.dijkPage.page, self.__buttonX, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
-        self.dijkTable = newTable(self.dijkPage.page, self.__tableWidth+165, self.__tableY, self.__tableWidth, self.__tableHeight)
+        self.dijkTable = newTable(self.dijkPage.page, self.__tableX, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.stackWidget.addPage(self.dijkPage.page)
 
     def backTrackWin(self):
         self.backTrackPage = newWidgetPage()
         self.backButton = newPushButton(self.backTrackPage.page, self.__buttonX+358, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
         self.btLinkButton = newPushButton(self.backTrackPage.page, self.__buttonX-107, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
-        self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-400, self.__tableY, self.__tableWidth+500, self.__tableHeight)
+        self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-375, self.__tableY, self.__tableWidth+450, self.__tableHeight)
         self.backTrackTableShort = newTable(self.backTrackPage.page, self.__tableX+380, self.__tableY, self.__tableWidth, self.__tableHeight)
-        self.allPathImage = newLabel(self.backTrackPage.page, self.__labelX-175, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "allPath.png")
+        self.allPathImage = newLabel(self.backTrackPage.page, self.__labelX-170, self.__labelY-210, self.__labelWidth+100, self.__labelHeight, "", "allPath.png")
         self.stackWidget.addPage(self.backTrackPage.page)
 
     def getLocation(self, file):
@@ -153,7 +160,7 @@ class window:
         #     if x not in locArr:
         #         locArr.append(x)
         # return locArr
-        g = Graph("graph.csv", self.tag,"")
+        g = Graph("graph.csv", "MRTBUS","")
         return g.adjList
 
     def openLink(self):

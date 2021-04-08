@@ -185,7 +185,7 @@ class newTable:
         self.table = QTableWidget(page)
         self.table.setGeometry(x, y, width, height)
         self.table.verticalHeader().setDefaultSectionSize(20)
-        self.table.horizontalHeader().setDefaultSectionSize(250)
+        self.table.horizontalHeader().setDefaultSectionSize(273)
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Fixed)
 
     def addData(self, data, col):
