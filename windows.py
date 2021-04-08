@@ -26,8 +26,8 @@ class window:
     __radioHeight = 40
 
     #Widget Coordinates
-    __logoX = (__winWidth - __comboWidth) / 2
-    __logoY = (__winHeight - __comboHeight) / 4
+    __logoX = (__winWidth - __logoWidth) / 2
+    __logoY = (__winHeight - __logoHeight) / 4
     __comboX = __logoX
     __comboY = __logoY + 100
     __labelX = __comboX - 150
@@ -122,16 +122,17 @@ class window:
         self.startCombo.combo.addItems(self.locations)
         self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight, "Ariel", 12)
         self.destCombo.combo.addItems(self.locations)
+        self.locations2 = self.filterBus(self.locations)
         self.conjestCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+100, self.__comboWidth, self.__comboHeight, "Ariel", 12)
-        self.conjestCombo.combo.addItems(self.locations)
+        self.conjestCombo.combo.addItems(self.locations2)
         self.startLabel = newLabel(self.mainPage.page, self.__labelX, self.__labelY, self.__labelWidth, self.__labelHeight, "Select Starting Point:", "", "Ariel", 12)
         self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
         self.conjestLabel = newLabel(self.mainPage.page, self.__labelX+34, self.__labelY+100, self.__labelWidth, self.__labelHeight, "Conjested MRT:", "", "Ariel", 12)
         self.dijkButton = newPushButton(self.mainPage.page, self.__buttonX, self.__buttonY+100, self.__buttonWidth, self.__buttonHeight, self.dijkClicked, "Use Dijkstra", "Ariel", 12)
         self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY+100, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
-        self.mrtRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
-        self.busRadio = newRadioButton(self.mainPage.page, self.__radioX+100, self.__radioY, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
-        self.mrtBusRadio = newRadioButton(self.mainPage.page, self.__radioX+200, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
+        self.mrtBusRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
+        self.mrtRadio = newRadioButton(self.mainPage.page, self.__radioX+110, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
+        self.busRadio = newRadioButton(self.mainPage.page, self.__radioX+210, self.__radioY, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
         self.mrtBusRadio.radio.setChecked(True)
         self.stackWidget.addPage(self.mainPage.page)
 
@@ -141,7 +142,6 @@ class window:
         self.dijkLinkButton = newPushButton(self.dijkPage.page, self.__buttonX, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
         self.dijkTable = newTable(self.dijkPage.page, self.__tableX, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.dijkPathImage = newLabel(self.dijkPage.page, self.__labelX+202, self.__labelY-210, self.__labelWidth+100, self.__labelHeight, "", "dijkPath.png")
-        print(self.__labelX, self.__tableX, self.__labelY, self.__tableY)
         self.stackWidget.addPage(self.dijkPage.page)
 
     def backTrackWin(self):
@@ -168,6 +168,12 @@ class window:
         # return locArr
         g = Graph("graph.csv", tag,"")
         return g.adjList
+
+    def filterBus(self, locations):
+        temp = [x for x in locations if "Bus" in x]
+        for y in temp:
+            del locations[y]
+        return locations
 
     def openLink(self):
         webbrowser.open_new("https://www.tomtom.com/en_gb/traffic-index/singapore-traffic/")
