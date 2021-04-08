@@ -227,9 +227,9 @@ class AStarMap:
             return self.FindPricePath(destination)
 
 
-if __name__ == '__main__':
-    tag = "MRTBUS"
-    congest = ""
-    graph = Graph("graph.csv", tag, congest)
-    aStarAlgo = AStarMap(graph, "Bukit Batok")
-    aStarAlgo.FindPath("Orchard", True)
+# if __name__ == '__main__':
+#     tag = "MRTBUS"
+#     congest = ""
+#     graph = Graph("graph.csv", tag, congest)
+#     aStarAlgo = AStarMap(graph, "Bukit Batok")
+#     aStarAlgo.FindPath("Orchard", True)
