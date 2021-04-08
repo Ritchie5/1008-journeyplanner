@@ -36,8 +36,8 @@ class window:
     __buttonY = __comboY + 100
     __tableX = (__winWidth - __tableWidth) / 2
     __tableY = 100
-    __radioX = (__comboX + __comboWidth) + 20
-    __radioY = __comboY - 50
+    __radioX = __comboX
+    __radioY = __comboY + 130
 
     tag = "MRTBUS"
 
@@ -116,19 +116,22 @@ class window:
     #Call function to setup main window
     def mainWin(self):
         self.mainPage = newWidgetPage()
-        self.locations = self.getLocation("graph.csv")
+        self.locations = self.getLocation("graph.csv", "MRTBUS")
         self.mainlogo = newLabel(self.mainPage.page, self.__logoX, self.__logoY, self.__logoWidth, self.__logoHeight, "", "mainLogo.PNG")
         self.startCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 12)
         self.startCombo.combo.addItems(self.locations)
         self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight, "Ariel", 12)
         self.destCombo.combo.addItems(self.locations)
+        self.conjestCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+100, self.__comboWidth, self.__comboHeight, "Ariel", 12)
+        self.conjestCombo.combo.addItems(self.locations)
         self.startLabel = newLabel(self.mainPage.page, self.__labelX, self.__labelY, self.__labelWidth, self.__labelHeight, "Select Starting Point:", "", "Ariel", 12)
         self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
-        self.dijkButton = newPushButton(self.mainPage.page, self.__buttonX, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.dijkClicked, "Use Dijkstra", "Ariel", 12)
-        self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
+        self.conjestLabel = newLabel(self.mainPage.page, self.__labelX+34, self.__labelY+100, self.__labelWidth, self.__labelHeight, "Conjested MRT:", "", "Ariel", 12)
+        self.dijkButton = newPushButton(self.mainPage.page, self.__buttonX, self.__buttonY+100, self.__buttonWidth, self.__buttonHeight, self.dijkClicked, "Use Dijkstra", "Ariel", 12)
+        self.backtrackButton = newPushButton(self.mainPage.page, self.__buttonX+250, self.__buttonY+100, self.__buttonWidth, self.__buttonHeight, self.backtrackClicked, "Use Backtrack", "Ariel", 12)
         self.mrtRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
-        self.busRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY+50, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
-        self.mrtBusRadio = newRadioButton(self.mainPage.page, self.__radioX, self.__radioY+100, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
+        self.busRadio = newRadioButton(self.mainPage.page, self.__radioX+100, self.__radioY, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
+        self.mrtBusRadio = newRadioButton(self.mainPage.page, self.__radioX+200, self.__radioY, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
         self.mrtBusRadio.radio.setChecked(True)
         self.stackWidget.addPage(self.mainPage.page)
 
@@ -137,6 +140,8 @@ class window:
         self.backButton = newPushButton(self.dijkPage.page, self.__buttonX+250, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
         self.dijkLinkButton = newPushButton(self.dijkPage.page, self.__buttonX, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
         self.dijkTable = newTable(self.dijkPage.page, self.__tableX, self.__tableY, self.__tableWidth, self.__tableHeight)
+        self.dijkPathImage = newLabel(self.dijkPage.page, self.__labelX+202, self.__labelY-210, self.__labelWidth+100, self.__labelHeight, "", "dijkPath.png")
+        print(self.__labelX, self.__tableX, self.__labelY, self.__tableY)
         self.stackWidget.addPage(self.dijkPage.page)
 
     def backTrackWin(self):
@@ -146,9 +151,10 @@ class window:
         self.backTrackTableAll = newTable(self.backTrackPage.page, self.__tableX-375, self.__tableY, self.__tableWidth+450, self.__tableHeight)
         self.backTrackTableShort = newTable(self.backTrackPage.page, self.__tableX+380, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.allPathImage = newLabel(self.backTrackPage.page, self.__labelX-170, self.__labelY-210, self.__labelWidth+100, self.__labelHeight, "", "allPath.png")
+        self.shortestPathImage = newLabel(self.backTrackPage.page, self.__labelX+585, self.__labelY-205, self.__labelWidth+50, self.__labelHeight-5, "", "shortestPath.png")
         self.stackWidget.addPage(self.backTrackPage.page)
 
-    def getLocation(self, file):
+    def getLocation(self, file, tag):
         # filename = open("graph.csv", "r")
         # file = csv.DictReader(filename)
         # tempArr = []
@@ -160,7 +166,7 @@ class window:
         #     if x not in locArr:
         #         locArr.append(x)
         # return locArr
-        g = Graph("graph.csv", "MRTBUS","")
+        g = Graph("graph.csv", tag,"")
         return g.adjList
 
     def openLink(self):
