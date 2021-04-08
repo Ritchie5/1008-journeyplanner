@@ -21,7 +21,7 @@ class window:
     __labelHeight = 40
     __comboWidth = 400
     __comboHeight = 40
-    __tableWidth = 290
+    __tableWidth = 300
     __tableHeight = 500
     __radioWidth = 150
     __radioHeight = 40
@@ -109,13 +109,13 @@ class window:
         self.mainPage = newWidgetPage()
         self.locations = self.graph1.adjList
         self.mainlogo = newLabel(self.mainPage.page, self.__logoX, self.__logoY, self.__logoWidth, self.__logoHeight, "", "mainLogo.PNG")
-        self.startCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 12)
+        self.startCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 10)
         self.startCombo.combo.addItems(self.locations)
-        self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight, "Ariel", 12)
+        self.destCombo = newComboBox(self.mainPage.page, self.__comboX, self.__comboY+50, self.__comboWidth, self.__comboHeight, "Ariel", 10)
         self.destCombo.combo.addItems(self.locations)
-        self.startLabel = newLabel(self.mainPage.page, self.__labelX, self.__labelY, self.__labelWidth, self.__labelHeight, "Select Starting Point:", "", "Ariel", 12)
-        self.destLabel = newLabel(self.mainPage.page, self.__labelX+16, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 12)
-        self.searchButton = newPushButton(self.mainPage.page, self.__buttonX+125, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.searchClicked, "Search", "Ariel", 12)
+        self.startLabel = newLabel(self.mainPage.page, self.__labelX-10, self.__labelY, self.__labelWidth+100, self.__labelHeight, "Select Starting Point:", "", "Ariel", 10)
+        self.destLabel = newLabel(self.mainPage.page, self.__labelX+4, self.__labelY+50, self.__labelWidth, self.__labelHeight, "Select Destination:", "", "Ariel", 10)
+        self.searchButton = newPushButton(self.mainPage.page, self.__buttonX+105, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.searchClicked, "Search", "Ariel", 10)
         self.stackWidget.addPage(self.mainPage.page)
 
     def resultWin(self):
@@ -123,8 +123,7 @@ class window:
         self.dijkTable = newTable(self.resultPage.page, self.__tableX, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.aStarTable = newTable(self.resultPage.page, self.__tableX+340, self.__tableY, self.__tableWidth, self.__tableHeight)
         self.backTrackTable = newTable(self.resultPage.page, self.__tableX-340, self.__tableY, self.__tableWidth, self.__tableHeight)
-        self.backButton = newPushButton(self.resultPage.page, self.__buttonX+358, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 12)
-        self.btLinkButton = newPushButton(self.resultPage.page, self.__buttonX-107, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 12)
+        self.backButton = newPushButton(self.resultPage.page, self.__buttonX+358, self.__buttonY+250, self.__buttonWidth, self.__buttonHeight, self.backClicked, "Back", "Ariel", 10)
         self.backTrackingImage = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "backTracking.png")
         self.dijkPathImage = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "dijkPath.png")
         self.aStarPathImage = newLabel(self.resultPage.page, self.__labelX+545, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "astarDirection.png")
@@ -133,32 +132,17 @@ class window:
     def firstWin(self):
         self.firstPage = newWidgetPage()
         self.firstWinLogo = newLabel(self.firstPage.page, self.__logoX, self.__logoY, self.__logoWidth, self.__logoHeight, "", "mainLogo.PNG")
-        self.mrtBusRadio = newRadioButton(self.firstPage.page, self.__radioX, self.__radioY-90, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 12)
-        self.mrtRadio = newRadioButton(self.firstPage.page, self.__radioX+110, self.__radioY-90, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 12)
-        self.busRadio = newRadioButton(self.firstPage.page, self.__radioX+210, self.__radioY-90, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 12)
+        self.mrtBusRadio = newRadioButton(self.firstPage.page, self.__radioX, self.__radioY-90, self.__radioWidth, self.__radioHeight, "MRT && Bus", "Ariel", 10)
+        self.mrtRadio = newRadioButton(self.firstPage.page, self.__radioX+120, self.__radioY-90, self.__radioWidth, self.__radioHeight, "MRT Only", "Ariel", 10)
+        self.busRadio = newRadioButton(self.firstPage.page, self.__radioX+230, self.__radioY-90, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 10)
         self.mrtBusRadio.radio.setChecked(True)
-        self.conjestLabel = newLabel(self.firstPage.page, self.__labelX+34, self.__labelY, self.__labelWidth, self.__labelHeight, "Conjested MRT:", "", "Ariel", 12)
+        self.conjestLabel = newLabel(self.firstPage.page, self.__labelX+30, self.__labelY, self.__labelWidth, self.__labelHeight, "Conjested MRT:", "", "Ariel", 10)
         self.locations2 = mrtList("graph.csv")
-        self.conjestCombo = newComboBox(self.firstPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 12)
+        self.conjestCombo = newComboBox(self.firstPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 10)
         self.conjestCombo.combo.addItems(self.locations2.dropdown)
-        self.nextButton = newPushButton(self.firstPage.page, self.__buttonX+125, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.nextFunction, "Next", "Ariel", 12)
+        self.nextButton = newPushButton(self.firstPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.nextFunction, "Next", "Ariel", 10)
+        self.traffcLinkButton = newPushButton(self.firstPage.page, self.__buttonX, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 10)
         self.stackWidget.addPage(self.firstPage.page)
-
-    def getLocation(self, file, tag):
-        # filename = open("graph.csv", "r")
-        # file = csv.DictReader(filename)
-        # tempArr = []
-        # locArr = []
-        # for col in file:
-        #     tempArr.append(col["Pasir ris"])
-        # locArr.append("Pasir ris")
-        # for x in tempArr:
-        #     if x not in locArr:
-        #         locArr.append(x)
-        # return locArr
-        # g = Graph("graph.csv", tag,"")
-        # return g.adjList
-        pass
 
     def filterBus(self, locations):
         temp = [x for x in locations if "Bus" in x]
