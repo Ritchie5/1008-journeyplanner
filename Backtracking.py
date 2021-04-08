@@ -3,6 +3,7 @@ from graph import Graph
 
 class Backtracking:
     # Find shortest path based on time
+<<<<<<< HEAD
     def find_shortest_path(self, graph1, start, end, time, cost, path=[0, 0]):
         path[0] += int(time)        # First element of array will contain time
         path[1] += float(cost)      # Second element of array will contain cost
@@ -14,6 +15,30 @@ class Backtracking:
         if start not in graph1:
             return None
         shortest_path = None
+=======
+    def find_shortest_path(self, graph1, start, end, time, cost):
+        paths = self.find_all_path(graph1, start, end, time, cost)
+
+        shortest_time = paths[0][0]
+        shortest_path = 0
+        for x in range(1, len(paths)):
+            if shortest_time > paths[x][0]:
+                shortest_time = paths[x][0]
+                shortest_path = x
+
+        return paths[shortest_path]
+
+        # Find all possible paths
+    def find_all_path(self, graph1, start, end, time, cost):
+        paths = self.find_all_path1(graph1, start, end, time, cost)
+        # Format paths
+        arr = [[0, 0] for j in range(len(paths))]
+        for x in range(0, len(paths)):
+            for y in range(0, len(paths[x]), 3):
+                arr[x].append(paths[x][y])
+                arr[x][0] += float(paths[x][y + 1])
+                arr[x][1] += float(paths[x][y + 2])
+>>>>>>> parent of c8c5f3b (Revert "Merge branch 'main' of https://github.com/Ritchie5/1008-journeyplanner into main")
 
         # Check all edges of graph
         for node in graph1[start]:
@@ -56,10 +81,14 @@ class Backtracking:
                 time = node.time
                 cost = node.cost
 <<<<<<< HEAD
+<<<<<<< HEAD
                 new_path = self.find_all_path(graph1, node.destination, end, time, cost, path)
 =======
                 new_path = self.find_all_path(Backtracking, graph1, node.destination, end, time, cost, path)
 >>>>>>> parent of e6e0ac1 (Fixed Backtracking)
+=======
+                new_path = self.find_all_path1(graph1, node.destination, end, time, cost, path)
+>>>>>>> parent of c8c5f3b (Revert "Merge branch 'main' of https://github.com/Ritchie5/1008-journeyplanner into main")
                 if new_path is not None:
                     # append all new paths to all_path array
                     for new_path in new_path:
@@ -76,6 +105,7 @@ if __name__ == '__main__':
     graph = Graph("graph.csv",tag)
     back_tracker = Backtracking
 <<<<<<< HEAD
+<<<<<<< HEAD
     paths = back_tracker.find_shortest_path(Backtracking, graph.adjList, "Simei", "Bedok", 0, 0.0)
 =======
     graph = Graph("graph.csv")
@@ -86,3 +116,6 @@ if __name__ == '__main__':
     paths = back_tracker.find_shortest_path(Backtracking, graph.adjList, "Simei", "Orchard", 0, 0.0)
 >>>>>>> parent of e6e0ac1 (Fixed Backtracking)
     print(paths)
+=======
+    paths = back_tracker.find_shortest_path(graph.adjList, "Simei", "Bedok", 0, 0.0)
+>>>>>>> parent of c8c5f3b (Revert "Merge branch 'main' of https://github.com/Ritchie5/1008-journeyplanner into main")
