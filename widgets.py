@@ -18,12 +18,6 @@ class newWindow:
     #Set Window Icon
     def setWindowIcon(self, image):
         self.win.setWindowIcon(QtGui.QIcon(image))
-    
-    #Set window background
-    # def setStyleSheet(self, image):
-    #     style = "background-image: url(./" + image + "); "
-    #     style += "background-repeat: repeat; background-position: center;"
-    #     self.QWin.setStyleSheet(style)
 
 class newApp:
     #Class to initialize a new instance of QApplication module which is required to run PyQt5

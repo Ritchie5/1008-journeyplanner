@@ -131,10 +131,6 @@ class AStarMap:
                     float(edge.cost)
                 )
 
-        #print(str(edgeGraph.adjList[edge][0]))
-        #for station in self.stationList:
-        #    print(self.stationList[station].to_string())
-
         return None
 
     def FindTimePath(self, destination):
@@ -146,22 +142,18 @@ class AStarMap:
                 temp = self.openList[i]
                 if temp.getTimeFCost() < currentNode.getTimeFCost() or temp.getTimeFCost() == currentNode.getTimeFCost() and temp.hTimeCost < currentNode.hTimeCost:
                     currentNode = temp
-            # print("Checking Current Node Name: " + currentNode.name + " F Cost: " + str(currentNode.getTimeFCost()))
 
             self.openList.remove(currentNode)
             self.closedList.append(currentNode)
             if currentNode.name == destination:
-                print("PATH FOUND")
                 return self.PathOutput(currentNode)
 
             for neighbour in currentNode.neighbourList:
-                # print("test")
                 if self.closedList.__contains__(neighbour.AStarNode):
                     continue
                 newMovementCost = currentNode.gTimeCost + currentNode.getNeighbourNode(
                     neighbour.AStarNode.name).timeCost
                 if newMovementCost < neighbour.AStarNode.getTimeFCost() or neighbour.AStarNode not in self.openList:
-                    # print("F cost of " + neighbour.AStarNode.name + " is " + str(neighbour.AStarNode.getTimeFCost()))
                     neighbour.AStarNode.gTimeCost = newMovementCost
                     neighbour.AStarNode.hTimeCost = neighbour.AStarNode.getSmallestHTimeValueByDepth(currentNode, 2,
                                                                                                      destination)
@@ -185,7 +177,6 @@ class AStarMap:
             self.closedList.append(currentNode)
 
             if currentNode.name == destination:
-                print("PATH FOUND")
                 return self.PathOutput(currentNode)
 
             for neighbour in currentNode.neighbourList:
@@ -219,8 +210,6 @@ class AStarMap:
         path.append(totalPrice)
         path.append(totalTime)
         path.reverse()
-        print("Total Time: " + str(totalTime) + "\nTotal Price: " + str(totalPrice) + "\n" + str(path))
-        print("Number of stops: " + str(len(path)))
         return path
 
     def FindPath(self, destination, isTimeWeighted=True):
@@ -229,10 +218,3 @@ class AStarMap:
         else:
             return self.FindPricePath(destination)
 
-
-# if __name__ == '__main__':
-#     tag = "MRTBUS"
-#     congest = ""
-#     graph = Graph("graph.csv", tag, congest)
-#     aStarAlgo = AStarMap(graph, "Bukit Batok")
-#     aStarAlgo.FindPath("Orchard", True)

@@ -41,7 +41,6 @@ class window:
     __radioY = __comboY + 130
 
     tag = "MRTBUS"
-    btCost = ""
 
     #Button functions
     def nextFunction(self):
@@ -63,7 +62,7 @@ class window:
             #Dijkstra
             temp = Dijkstra(self.graph1, startLoc)
             dijkPath = temp.find_path(destLoc)
-            self.dijkCost = "Time taken: ", round(float(dijkPath[0]), 2), "Total Cost: ", round(float(dijkPath[1]), 2)
+            self.dijkCost = "Time taken: " + str(round(float(dijkPath[0]), 2)) + "mins", "Total Cost: $" + str(round(float(dijkPath[1]), 2))
             self.dijkCostLabel = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.dijkCost))
             self.dijkTable.addRow(len(dijkPath[2:]))
             self.dijkTable.addCol(1)
@@ -72,7 +71,7 @@ class window:
             #Backtracking
             back_tracker = Backtracking()
             pathShort = back_tracker.find_shortest_path(self.graph1.adjList, startLoc, destLoc, 0, 0)
-            self.btCost = "Time taken: ", round(float(pathShort[0]), 2), "Total Cost: ", round(float(pathShort[1]), 2)
+            self.btCost = "Time taken: " + str(round(float(pathShort[0]), 2)) + "mins", "Total Cost: $" + str(round(float(pathShort[1]), 2))
             self.backTrackingLabel = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.btCost))
             self.backTrackTable.addRow(len(pathShort[2:]))
             self.backTrackTable.addCol(1)
@@ -81,7 +80,7 @@ class window:
             #Astar
             astar = AStarMap(self.graph1, startLoc)
             timePath = astar.FindPath(destLoc, True)
-            self.astarCost = "Time taken: ", round(float(timePath[0]), 2), "Total Cost: ", round(float(timePath[1]), 2)
+            self.astarCost = "Time taken: " + str(round(float(timePath[0]), 2)) + "mins", "Total Cost: $" + str(round(float(timePath[1]), 2))
             self.astarCostLabel = newLabel(self.resultPage.page, self.__labelX+545, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.astarCost))
             self.aStarTable.addRow(len(timePath[2:]))
             self.aStarTable.addCol(1)

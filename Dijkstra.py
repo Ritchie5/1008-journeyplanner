@@ -105,13 +105,3 @@ class Dijkstra_node:
         def dist(self):
             return self.cost()
 
-
-if __name__ == '__main__':
-    tag = "BUS"
-    congest = ""
-    graph = Graph("graph.csv",tag,congest)
-    s = "Clementi"
-    d = "Buona Vista"
-    temp = Dijkstra(graph, s)
-    path = temp.find_path(d)
-    print(path)
