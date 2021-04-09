@@ -77,6 +77,7 @@ BUS,Bus 106-19029: Opp SP SMA,Bus 106-19019: Blk 27,0.52,0.09
 BUS,Bus 106-19019: Blk 27,Bus 106-11199: Blk 15,0.7,0.13
 BUS,Bus 106-11199: Blk 15,Bus 106-11189: Blk 43,0.87,0.16
 BUS,Bus 106-11189: Blk 43,Bus 106-11401: Holland V Stn/Blk 12,0.7,0.13
+WALK,Bus 106-11189: Blk 43,Buona Vista,0.7,0.13
 BUS,Bus 106-11401: Holland V Stn/Blk 12,Bus 106-11239: Fairlodge,1.92,0.34
 BUS,Bus 106-11239: Fairlodge,Bus 106-11229: Les Jardins de Holland,0.7,0.13
 BUS,Bus 106-11229: Les Jardins de Holland,Bus 106-11219: Great Eastern Mansions,0.35,0.06

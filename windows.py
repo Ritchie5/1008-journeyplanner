@@ -63,7 +63,7 @@ class window:
             temp = Dijkstra(self.graph1, startLoc)
             dijkPath = temp.find_path(destLoc)
             self.dijkCost = "Time taken: " + str(round(float(dijkPath[0]), 2)) + "mins", "Total Cost: $" + str(round(float(dijkPath[1]), 2))
-            self.dijkCostLabel = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.dijkCost))
+            self.dijkCostLabel.setText(str(self.dijkCost))
             self.dijkTable.addRow(len(dijkPath[2:]))
             self.dijkTable.addCol(1)
             self.dijkTable.addData(dijkPath[2:], 0)
@@ -72,7 +72,7 @@ class window:
             back_tracker = Backtracking()
             pathShort = back_tracker.find_shortest_path(self.graph1.adjList, startLoc, destLoc, 0, 0)
             self.btCost = "Time taken: " + str(round(float(pathShort[0]), 2)) + "mins", "Total Cost: $" + str(round(float(pathShort[1]), 2))
-            self.backTrackingLabel = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.btCost))
+            self.backTrackingLabel.setText(str(self.btCost))
             self.backTrackTable.addRow(len(pathShort[2:]))
             self.backTrackTable.addCol(1)
             self.backTrackTable.addData(pathShort[2:], 0)
@@ -81,7 +81,7 @@ class window:
             astar = AStarMap(self.graph1, startLoc)
             timePath = astar.FindPath(destLoc, True)
             self.astarCost = "Time taken: " + str(round(float(timePath[0]), 2)) + "mins", "Total Cost: $" + str(round(float(timePath[1]), 2))
-            self.astarCostLabel = newLabel(self.resultPage.page, self.__labelX+545, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, str(self.astarCost))
+            self.astarCostLabel.setText(str(self.astarCost))
             self.aStarTable.addRow(len(timePath[2:]))
             self.aStarTable.addCol(1)
             self.aStarTable.addData(timePath[2:], 0)
@@ -126,6 +126,9 @@ class window:
         self.backTrackingImage = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "backTracking.png")
         self.dijkPathImage = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "dijkPath.png")
         self.aStarPathImage = newLabel(self.resultPage.page, self.__labelX+545, self.__labelY-220, self.__labelWidth+100, self.__labelHeight, "", "astarDirection.png")
+        self.backTrackingLabel = newLabel(self.resultPage.page, self.__labelX-135, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, " ")
+        self.astarCostLabel = newLabel(self.resultPage.page, self.__labelX+545, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, " ")
+        self.dijkCostLabel = newLabel(self.resultPage.page, self.__labelX+205, self.__labelY-190, self.__labelWidth+150, self.__labelHeight, " ")
         self.stackWidget.addPage(self.resultPage.page)
 
     def firstWin(self):
@@ -136,18 +139,20 @@ class window:
         self.busRadio = newRadioButton(self.firstPage.page, self.__radioX+230, self.__radioY-90, self.__radioWidth, self.__radioHeight, "Bus Only", "Ariel", 10)
         self.mrtBusRadio.radio.setChecked(True)
         self.conjestLabel = newLabel(self.firstPage.page, self.__labelX+30, self.__labelY, self.__labelWidth, self.__labelHeight, "Conjested MRT:", "", "Ariel", 10)
-        self.locations2 = mrtList("graph.csv")
+        self.locations = mrtList("graph.csv")
+        self.locations2 = self.filterMRT(self.locations.dropdown)
         self.conjestCombo = newComboBox(self.firstPage.page, self.__comboX, self.__comboY, self.__comboWidth, self.__comboHeight, "Ariel", 10)
-        self.conjestCombo.combo.addItems(self.locations2.dropdown)
+        self.conjestCombo.combo.addItems(self.locations2)
         self.nextButton = newPushButton(self.firstPage.page, self.__buttonX+250, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.nextFunction, "Next", "Ariel", 10)
         self.traffcLinkButton = newPushButton(self.firstPage.page, self.__buttonX, self.__buttonY, self.__buttonWidth, self.__buttonHeight, self.openLink, "Check Traffic", "Ariel", 10)
         self.stackWidget.addPage(self.firstPage.page)
 
-    def filterBus(self, locations):
-        temp = [x for x in locations if "Bus" in x]
-        for y in temp:
-            del locations[y]
-        return locations
+    def filterMRT(self, locations):
+        a = []
+        for x in locations:
+            if x not in a:
+                a.append(x)
+        return a
 
     def openLink(self):
-        webbrowser.open_new("https://www.tomtom.com/en_gb/traffic-index/singapore-traffic/")
+        webbrowser.open_new("https://mrt.sg/news")
